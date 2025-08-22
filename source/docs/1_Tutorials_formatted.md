@@ -4,7 +4,7 @@
 
 ### 1.1.1 Ackermann Chassis Introduction
 
-<img src="../_static/media/chapter_1/section_1/01/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_1/image2.png" class="common_img" />
 
 The Ackermann steering chassis represents a standard configuration extensively employed in the new energy market and is a popular choice within the realm of autonomous driving. Specifically developed by Hiwonder, for educational scenarios, this Ackermann car chassis aligns with the standard structure of modern car chassis. In this design, the rear wheels consistently maintain a parallel orientation, while the inner wheels articulate at an angle during turns. Ackermann steering is characterized by the inner wheel turning at a greater angle than the outer wheel, and the disparity in turning angles is termed Ackermann steering.
 
@@ -41,11 +41,11 @@ The front wheel transmission system of the Ackerman chassis consists of a steeri
 
 During turns, the two front wheels maintain a parallel alignment, meaning they rotate at the same angle. The control of the rear wheels involves motors and wheels. The robot's forward, backward, and speed movements are regulated by the motor's rotation.
 
-<img src="../_static/media/chapter_1/section_1/01/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_1/image3.png" class="common_img" />
 
 The Ackerman car is equipped with a 520 Hall-coded DC reduction motor—a high-torque, high-load motor with a 12V DC power supply and a reduction ratio of 1:30. This motor design enhances the performance and efficiency of the Ackerman chassis.
 
-<img src="../_static/media/chapter_1/section_1/01/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_1/image4.png" class="common_img" style="width:350px;"/>
 
 (2) Physical Characteristic
 
@@ -94,11 +94,12 @@ Hello everyone. In this video, I'll demonstrate how to connect the battery to th
 **A 1-second interval separates each action.**
 
 * **Hardware Introduction**
+
 (1) STM32 Main Control Module Introduction
 
 The controller utilizes the STM32F407VET6 and the motor drive chip employed is the YX4055 (over-current protection). The voltage range is from 3V to 12V, depending on the actual voltage applied to the motor. The interface layout is as follow:
 
-<img src="../_static/media/chapter_1/section_2/02/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image2.png" class="common_img" />
 
 The interface instruction is as follow:
 
@@ -121,7 +122,7 @@ The interface instruction is as follow:
 
 (2) Steering Servo
 
-<img src="../_static/media/chapter_1/section_2/02/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image3.png" class="common_img" />
 
 The steering servo in this chassis utilizes the LD-1501MG PWM servo model.
 
@@ -131,7 +132,7 @@ The PWM waveform signal is employed to regulate the servo position. When the PWM
 
 By continuously fine-tuning the PWM duty cycle, the microcontroller can precisely control the motor's rotation angle. This, in turn, drives the mechanical structure to rotate, achieving accurate position control of the steering gear output shaft.
 
-<img src="../_static/media/chapter_1/section_2/02/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image4.png" class="common_img" />
 
 The above picture is the PWM servo wiring interface diagram, and the following table is the pin distribution table:
 
@@ -145,7 +146,7 @@ The above picture is the PWM servo wiring interface diagram, and the following t
 
 The motor model employed by the suspension Ackermann chassis is **`JGB37-520R30-12`**, where J represents a DC motor, GB represents an electronic output shaft, 520 represents the motor type, R30 represents a reduction ratio of 1:30, 12 represents the a rated voltage of 12V. Its interface description is shown in the figure below:
 
-<img src="../_static/media/chapter_1/section_2/02/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image5.png" class="common_img" />
 
 The Hall encoder disk is aligned with the motor along the same shaft. As the motor rotates, the Hall device detects the motion and generates a series of pulse signals. To ascertain the steering direction, it typically produces two sets of square wave signals with a specific phase difference.
 
@@ -153,13 +154,13 @@ The Hall encoder disk is aligned with the motor along the same shaft. As the mot
 
 The Ackerman car's wiring setup is as follows: Connect the front steering servo to the J1 interface of the STM32 main control board using the specified wiring interface. Additionally, link the left motor to the M1 interface and the right motor to the M2 interface on the STM32 main control board. The detailed wiring method is illustrated below.
 
-<img src="../_static/media/chapter_1/section_2/02/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image6.png" class="common_img" />
 
-<img src="../_static/media/chapter_1/section_2/02/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image7.png" class="common_img" />
 
 * **Program Download**
 
-[Source Code]()
+[Source Code](https://drive.google.com/drive/folders/1yav6eu1obCyiQb6E08EEPfVkPyGk9PeC?usp=sharing)
 
 After the project is compiled completely, download the generated hex file to the STM32 control board. Please prepare the following hardware materials:
 
@@ -167,7 +168,7 @@ After the project is compiled completely, download the generated hex file to the
 
 ① **Software**: **`FlyMcu`** (it is located in **"2. Software Tools/ 01 STM32 Installation Pack/ USB Serial Port Download/ FlyMcu"**)
 
-<img src="../_static/media/chapter_1/section_2/02/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image8.png" class="common_img" />
 
 ② **Hardware**: Type-C cable, STN32 main control board
 
@@ -179,41 +180,39 @@ The specific operation steps are as follow:
 
 Use Type-C cable to connect the Type-C port (UART) of the STM32 control board and the USB port of your computer:
 
-<img src="../_static/media/chapter_1/section_2/02/media/image9.png" class="common_img" />
-
-[UART1]()
+<img src="../_static/media/chapter_1/section_2/image9.png" class="common_img" />
 
 ② Basic setting:
 
 Open `FlyMcu`. Click **"Enum Port"** at top menu bar, then set the baud rate (bps) as 115200:
 
-<img src="../_static/media/chapter_1/section_2/02/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image10.png" class="common_img" />
 
 Click **"STMISP"** option and configure as shown in the following figure.
 
-<img src="../_static/media/chapter_1/section_2/02/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image11.png" class="common_img" />
 
 Select **"DTR Low(＜-3V)，ISP @RTS High"**:
 
-<img src="../_static/media/chapter_1/section_2/02/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image12.png" class="common_img" />
 
 ③ Software burning:
 
-In the `FlyMcu` software interface, click <img src="../_static/media/chapter_1/section_2/02/media/image13.png" />to select the hex file to be burned. The program below is just for your reference, please rely on the actual program. Select the hex file in **"03 Program/RosRobotControllerM4_MINACKER/MDK-ARM/RosRobotControllerM4/RosRobotControllerM4.hex"**.
+In the `FlyMcu` software interface, click <img src="../_static/media/chapter_1/section_2/image13.png" />to select the hex file to be burned. The program below is just for your reference, please rely on the actual program. Select the hex file in **"03 Program/RosRobotControllerM4_MINACKER/MDK-ARM/RosRobotControllerM4/RosRobotControllerM4.hex"**.
 
-<img src="../_static/media/chapter_1/section_2/02/media/image14.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image14.png" class="common_img" />
 
 Go back to the previous interface and click the **"Start ISP"** to burn the generated hex file onto the STM32 main control board:
 
-<img src="../_static/media/chapter_1/section_2/02/media/image15.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image15.png" class="common_img" />
 
 The burning is in progress.:
 
-<img src="../_static/media/chapter_1/section_2/02/media/image16.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image16.png" class="common_img" />
 
 When the burning is complete, you will receive the following prompt.
 
-<img src="../_static/media/chapter_1/section_2/02/media/image16.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image16.png" class="common_img" />
 
 In addition to use USB method for program download, you can also use either st-link or j-link method for direct compilation and burning.
 
@@ -241,7 +240,7 @@ Each action is separated by a 1-second interval.
 
 * **Source Code Analysis**
 
-[Source Code]()
+[Source Code](https://drive.google.com/drive/folders/1yav6eu1obCyiQb6E08EEPfVkPyGk9PeC?usp=sharing)
 
 (1) Robot Motion Program Analysis
 
@@ -360,7 +359,7 @@ void minacker_chassis_move(AckermannChassisTypeDef *self, float vx, float r )
 }
 ```
 
-③ Set Robot’s Turning
+③ Set Robot's Turning
 
 Control the chassis turning using `set_velocity_radius()` function.
 
@@ -409,13 +408,13 @@ void minacker_chassis_move(AckermannChassisTypeDef *self, float vx, float r )
 
 **The figure below illustrates the application of Ackermann's kinematics formula in the program, providing a visual representation of the kinematic principles employed.**
 
-<img src="../_static/media/chapter_1/section_2/02/media/image25.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image25.png" class="common_img" />
 
-**Steering servo angle formula**： <img src="../_static/media/chapter_1/section_2/02/media/image26.PNG" />
+**Steering servo angle formula**： <img src="../_static/media/chapter_1/section_2/image26.PNG" />
 
-**Left wheel speed formula**: <img src="../_static/media/chapter_1/section_2/02/media/image27.PNG" />
+**Left wheel speed formula**: <img src="../_static/media/chapter_1/section_2/image27.PNG" />
 
-**Right wheel speed formula**: <img src="../_static/media/chapter_1/section_2/02/media/image28.PNG" />
+**Right wheel speed formula**: <img src="../_static/media/chapter_1/section_2/image28.PNG" />
 
 ④ Control Robot to Stop
 
@@ -457,15 +456,15 @@ MX_TIM7_Init();
 
 In the main function within the `main.c` file, several timers are initialized. We will focus on elucidating the motor control process for Motor 1, with the understanding that the control mechanisms for the other motors remain identical. Motor 1 involves the utilization of three timers: Timer 1 (for PWM control of motor speed), Timer 5 (for obtaining motor speed through encoder), and Timer 7 (for timed interrupts to update motor speed measurements and PID control frequency). Additionally, interrupt initialization is performed. The figure below illustrates the parameter configuration in STM32CubeMX, and for a more intuitive view, it is recommended to refer to the `tim.c` file or use the STM32CubeMX software interface for configuration settings.
 
-<img src="../_static/media/chapter_1/section_2/02/media/image34.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image34.png" class="common_img" />
 
 **Timer 1 (PWM Control Motor Speed)**
 
-<img src="../_static/media/chapter_1/section_2/02/media/image35.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image35.png" class="common_img" />
 
 **Timer 5 (Encoder measures and captures the speed of the motor)**
 
-<img src="../_static/media/chapter_1/section_2/02/media/image36.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image36.png" class="common_img" />
 
 **Timer 7(update motor speed measurements and regulate the frequency of PID control)**
 
@@ -478,7 +477,7 @@ In the main function within the `main.c` file, several timers are initialized. W
 motors_init();
 ```
 
-The below code segment shows the initialization of the motor, located in `..\Hiwonder\motor_porting.c`. It initializes the motor structure. In the next section, "Chassis Motor Motion Parameter Initialization", the parameters of this motor will be overridden. Pay attention to selecting the appropriate chassis type.
+The below code segment shows the initialization of the motor, located in `..\Hiwonder\motor_porting.c`. It initializes the motor structure. In the next section, "**Chassis Motor Motion Parameter Initialization**", the parameters of this motor will be overridden. Pay attention to selecting the appropriate chassis type.
 
 {lineno-start=43}
 ```c
@@ -809,11 +808,11 @@ static void motor1_set_pulse(EncoderMotorObjectTypeDef *self, int speed)
 
 **Combined with the STM32CubeMX configuration, as shown in the figure below, the TIM1 clock frequency is 84MHz, the prescaler value is 839, and the counting period is 999. In each PWM cycle, the timer counter counts from 0 to 999. The "pulse" represents the PWM duty cycle. When the counter reaches the duty cycle value, the high and low voltage levels are inverted, and the counter resets when it reaches 999. "Pulse" is used to set the timer's compare-match register, thereby controlling the PWM signal's duty cycle.**
 
-<img src="../_static/media/chapter_1/section_2/02/media/image34.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image34.png" class="common_img" />
 
 According to the following formula, the interrupt period of Timer 1 becomes 0.01 seconds, which means an update interrupt is generated every 10 milliseconds: Formula: **Timer overflow time = (prescaler value + 1) × (counting period + 1) / Timer clock frequency**
 
-<img src="../_static/media/chapter_1/section_2/02/media/image62.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image62.png" class="common_img" />
 
 The calculation process is as follows: **Timer overflow time = (999+1) × (839+1) / 84MHz = 10 ms**
 
@@ -851,7 +850,7 @@ void TIM7_IRQHandler(void)
 
 **Combined with the STM32CubeMX configuration, as shown in the figure below, TIM7 is connected to APB1, with a clock frequency of 84MHz, which means a 84 prescaler gives a frequency of 1MHz.**
 
-<img src="../_static/media/chapter_1/section_2/02/media/image65.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image65.png" class="common_img" />
 
 **According to the following formula, the interrupt period of Timer 7 becomes 0.01 seconds, which means an update interrupt is generated every 10 milliseconds: `Timer overflow time=(83+1)×(9999+1)84MHz=10 ms`**
 
@@ -920,7 +919,7 @@ void encoder_update(EncoderMotorObjectTypeDef *self, float period, int64_t count
 
 From the following diagram, we can see that the 4x frequency counting mode counts each pulse four times.
 
-<img src="../_static/media/chapter_1/section_2/02/media/image69.jpeg" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image69.jpeg" class="common_img" />
 
 **When the encoder count overflows, it enters the interrupt of Timer 5, where the overflow count changes. The number of underflow occurrences decreases, and the number of overflow occurrences increases. The program is located in `..\Core\Src\stm32f4xx_it.c`**
 
@@ -991,7 +990,7 @@ void pid_controller_update(PID_ControllerTypeDef *self, float actual, float time
 
 **The program utilizes the standard positional PID formula, as illustrated in the figure below:**
 
-<img src="../_static/media/chapter_1/section_2/02/media/image72.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image72.png" class="common_img" />
 
 (4) Servo Control Analysis
 
@@ -1044,7 +1043,7 @@ void MX_TIM13_Init(void)
 
 Timer 13 facilitates real-time updates of the servo PWM value. Begin by configuring the parameters in STM32CubeMX. You can also review the corresponding generated program in the `tim.c` file for additional insights.
 
-<img src="../_static/media/chapter_1/section_2/02/media/image74.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image74.png" class="common_img" />
 
 **Timer 13 (Update servo PWM value)**
 
@@ -1390,7 +1389,6 @@ void pwm_servo_object_init(PwMServoobjectTypeDef *obj)
 }
 ```
 
-
 **In the interrupt handler of timer 13, the PWM value for servo control is regularly updated using the `__HAL_TIM_SET_COMPARE()` function, specifically with `pwm_servos[pwm_servo_index]->duty_raw`. The relevant code is located in the file `..\Core\Src\stm32f4xx_it.c`.**
 
 {lineno-start=414}
@@ -1423,7 +1421,7 @@ void TIM8_UP_TIM13_IRQHandler(void)
 
 This behavior is governed by the formula: the interrupt period of timer 13 is 0.005 seconds, resulting in an update interrupt every 5ms.
 
-<img src="../_static/media/chapter_1/section_2/02/media/image74.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_2/image74.png" class="common_img" />
 
 The formula is:
 
@@ -1476,13 +1474,13 @@ Arduino is a convenient, flexible, and user-friendly open-source electronic prot
 
 The following diagram illustrates the physical pin layout of Arduino UNO (please refer to your specific Arduino UNO main control board for accurate details):
 
-<img src="../_static/media/chapter_1/section_3/02/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/02/image2.png" class="common_img" />
 
 (2) 4-Channel Encoder Motor Driver
 
 This is a motor drive module designed to work with a microcontroller for driving TT motors or magnetic encoder motors. Each channel is equipped with a YX-4055AM motor drive chip, and its voltage range is DC 3V-12V. The specific voltage depends on the voltage requirements of the connected motor. The interface distribution is illustrated in the figure below:
 
-<img src="../_static/media/chapter_1/section_3/02/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/02/image3.png" class="common_img" />
 
 The introduction to the interface on the driver is as below:
 
@@ -1512,7 +1510,7 @@ The introduction to the interface on the driver is as below:
 
 (3) Steering Servo
 
-<img src="../_static/media/chapter_1/section_3/02/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/02/image4.png" class="common_img" />
 
 The steering servo in this chassis utilizes the LD-1501MG PWM servo model.
 
@@ -1522,7 +1520,7 @@ The PWM waveform signal is employed to regulate the servo position. When the PWM
 
 By continuously fine-tuning the PWM duty cycle, the microcontroller can precisely control the motor's rotation angle. This, in turn, drives the mechanical structure to rotate, achieving accurate position control of the steering gear output shaft.
 
-<img src="../_static/media/chapter_1/section_3/02/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/02/image5.png" class="common_img" />
 
 The diagram above illustrates the wiring port distribution for the bus servo, accompanied by the pin distribution table below. Please note: When the servo and the microcontroller are powered by different sources, ensure both power supplies are grounded together.
 
@@ -1534,44 +1532,44 @@ The diagram above illustrates the wiring port distribution for the bus servo, ac
 
 (4) Encoder Geared Motor
 
-The motor model employed in this chassis is JGB37-520R30-12. Here's the breakdown: "J" signifies a DC motor, "GB" denotes an eccentric output shaft, "37" indicates the diameter of the reduction box, "520" represents the motor model, "R30" stands for the reduction ratio of 1:30, and "12" signifies the rated voltage of 12V. Please refer to the interface description illustrated in the figure below:
+The motor model employed in this chassis is JGB37-520R30-12. Here's the breakdown: "**J**" signifies a DC motor, "**GB**" denotes an eccentric output shaft, "**37**" indicates the diameter of the reduction box, "**520**" represents the motor model, "**R30**" stands for the reduction ratio of 1:30, and "**12**" signifies the rated voltage of 12V. Please refer to the interface description illustrated in the figure below:
 
-<img src="../_static/media/chapter_1/section_3/02/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/02/image6.png" class="common_img" />
 
 * **Wiring**
 
 The Arduino Uno is outfitted with a 4-channel motor driver. It operates using an 11.1V 6000mAh lithium battery to power the motor, while a separate 7.4V battery is utilized to power the steering servo. Refer to the image below for the Arduino UNO wiring diagram.
 
-<img src="../_static/media/chapter_1/section_3/02/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/02/image7.png" class="common_img" />
 
-<img src="../_static/media/chapter_1/section_3/02/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/02/image8.png" class="common_img" />
 
 * **Environment Configuration and Program Download**
 (1) Environment Configuration
 
-Prior to downloading, ensure that the Arduino IDE is installed on your computer. You can find the software package in the **'2. Software Tools/01 Arduino Installation Package'**.
+Prior to downloading, ensure that the Arduino IDE is installed on your computer. You can find the software package in the **'[2. Software Tools/01 Arduino Installation Package](Appendix.md)'**.
 
 (2) Program Running
 
-Open the ‘**`control.ino`**’ program saved in ‘**3. Programs\ control**’ using Arduino IDE.
+Open the '**`control.ino`**' program saved in '**3. Programs\ control**' using Arduino IDE.
 
 ① Choose the Arduino development board type. In this case, select **'Arduino UNO'** .
 
-<img src="../_static/media/chapter_1/section_3/02/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/02/image9.png" class="common_img" />
 
 ② Select the USB port the Arduino currently connecting to your computer. The IDE will detect it automatically; in this case, choose 'COM56'.
 
-<img src="../_static/media/chapter_1/section_3/02/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/02/image10.png" class="common_img" />
 
-③ Connect Arduino UNO to the computer. Select ‘Arduino UNO’ in the tool bar, and click-on <img src="../_static/media/chapter_1/section_3/02/media/image11.png" /> to download the program.
+③ Connect Arduino UNO to the computer. Select 'Arduino UNO' in the tool bar, and click-on <img src="../_static/media/chapter_1/section_3/02/image11.png" /> to download the program.
 
 ④ The software will compile the program automatically. Please wait until the compilation process is successfully completed.
 
-<img src="../_static/media/chapter_1/section_3/02/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/02/image12.png" class="common_img" />
 
 ⑤ Wait for the program to finish uploading.
 
-<img src="../_static/media/chapter_1/section_3/02/media/image13.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/02/image13.png" class="common_img" />
 
 (3) Program Outcome
 
@@ -1579,7 +1577,7 @@ Once the program is downloaded, the car chassis executes the following actions i
 
 * **Program Analysis**
 
-[Source Code]()
+[Source Code](https://drive.google.com/drive/folders/1bp-iXLNBS8L3U8xNL61i6Pw19vn23lpQ?usp=sharing)
 
 (1) Import Necessary Library
 
@@ -1746,12 +1744,12 @@ In this section, the car is controlled to move by receiving data sent from the m
 
 * **Program Logic**
 
-<img src="../_static/media/chapter_1/section_3/06/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/06/image2.png" class="common_img" />
 
 * **Bluetooth Module**
 (1) Module Introduction
 
-<img src="../_static/media/chapter_1/section_3/06/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/06/image3.png" class="common_img" />
 
 The Bluetooth module is a hardware component that integrates Bluetooth communication capabilities and is commonly used for wireless data transmission between electronic devices. It fundamentally communicates through a UART serial interface.
 
@@ -1759,36 +1757,36 @@ The Bluetooth module is a hardware component that integrates Bluetooth communica
 
 Connect the Bluetooth module to the Bluetooth port of the expansion board as below:
 
-<img src="../_static/media/chapter_1/section_3/06/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/06/image4.png" class="common_img" />
 
 * **Program Download**
 
-[Source Code]()
+[Source Code](https://drive.google.com/drive/folders/1bp-iXLNBS8L3U8xNL61i6Pw19vn23lpQ?usp=sharing)
 
 :::{Note}
 * Please remove the Bluetooth module before downloading the program. Otherwise, a serial port conflict may occur, resulting in a failed download.
-* When connecting the Type-B download cable, make sure the battery box switch is set to the "OFF" position. This helps prevent accidental contact between the cable and the power pins on the expansion board, which could cause a short circuit.
+* When connecting the Type-B download cable, make sure the battery box switch is set to the "**OFF**" position. This helps prevent accidental contact between the cable and the power pins on the expansion board, which could cause a short circuit.
 :::
 
 (1) Locate and open the program file **“`3.2.3 Programs\Akerman_app\Akerman_app.ino`”** in the same directory as this section.
 
-<img src="../_static/media/chapter_1/section_3/06/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/06/image5.png" class="common_img" />
 
 (2) Connect the Arduino to your computer using a Type-B USB data cable. Click on **"Select Board"** — the software will automatically detect the current Arduino port. Click to establish the connection.
 
-<img src="../_static/media/chapter_1/section_3/06/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/06/image6.png" class="common_img" />
 
-(3) Click the **Upload** <img src="../_static/media/chapter_1/section_3/06/media/image7.png" /> button to download the program to the Arduino. Wait for the upload to complete.
+(3) Click the **Upload** <img src="../_static/media/chapter_1/section_3/06/image7.png" /> button to download the program to the Arduino. Wait for the upload to complete.
 
-<img src="../_static/media/chapter_1/section_3/06/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_3/06/image8.png" class="common_img" />
 
 * **Program Outcome**
 
-Once the mobile app is connected to the Bluetooth module, you can control the Ackermann chassis movement directly through the app’s buttons.
+Once the mobile app is connected to the Bluetooth module, you can control the Ackermann chassis movement directly through the app's buttons.
 
 * **Program Analysis**
 
-[Source Code]()
+[Source Code](https://drive.google.com/drive/folders/1bp-iXLNBS8L3U8xNL61i6Pw19vn23lpQ?usp=sharing)
 
 (1) Import Library Files
 
@@ -1836,7 +1834,7 @@ HashTableEntry table[TABLE_SIZE] = {
 };
 ```
 
-② An Ackermann chassis control object is defined, with the initial control state set to "none." A variable is created to store the speed, initialized at 150 mm/s. The `speed_limit` variable is used to define the maximum allowable speed.
+② An Ackermann chassis control object is defined, with the initial control state set to "**none**." A variable is created to store the speed, initialized at 150 mm/s. The `speed_limit` variable is used to define the maximum allowable speed.
 
 ```arduino
 Akerman akerman;
@@ -1844,8 +1842,6 @@ Mode_State key = NULL_KEY;
 float speed = 150.0f;
 float speed_limit = 300.0f;
 ```
-
-<img src="../_static/media/chapter_1/section_3/06/media/image11.png" class="common_img" />
 
 (3) Initialize Settings
 
@@ -2076,13 +2072,13 @@ The Raspberry Pi 4B is a compact embedded computer featuring a built-in GPU with
 
 The diagram below illustrates the pin port distribution of the Raspberry Pi 4B, which will be further discussed in the subsequent wiring and development process.
 
-<img src="../_static/media/chapter_1/section_4/02/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image2.png" class="common_img" />
 
 (2) 4-Channel Encoder Motor Driver
 
 This is a motor drive module designed to work with a microcontroller for driving TT motors or magnetic encoder motors. Each channel is equipped with a YX-4055AM motor drive chip, and its voltage range is DC 3V-12V. The specific voltage depends on the voltage requirements of the connected motor. The interface distribution is illustrated in the figure below:
 
-<img src="../_static/media/chapter_1/section_4/02/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image3.png" class="common_img" />
 
 The introduction to the interface on the driver is as below:
 
@@ -2112,13 +2108,13 @@ The introduction to the interface on the driver is as below:
 
 (3) Steering Servo
 
-<img src="../_static/media/chapter_1/section_4/02/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image4.png" class="common_img" />
 
 The steering servo in this chassis utilizes the LD-1501MG PWM servo model.
 
 The LD-1501MG operates on a PWM servo mechanism. To control it, a PWM signal with a 20ms period is sent to the signal end. The servo angle is adjusted by manipulating the pulse width within the range of 500 to 2500μs. This corresponds to an angle range of 0 to 180°, and the recommended operating voltage is between 6V and 8.4V.
 
-<img src="../_static/media/chapter_1/section_4/02/media/image5.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image5.png" class="common_img" />
 
 | **PIN** | **Description** |
 |:---:|:---:|
@@ -2128,17 +2124,17 @@ The LD-1501MG operates on a PWM servo mechanism. To control it, a PWM signal wit
 
 (4) Encoder Geared Motor
 
-The motor model employed in this chassis is JGB37-520R30-12. Here's the breakdown: "J" signifies a DC motor, "GB" denotes an eccentric output shaft, "37" indicates the diameter of the reduction box, "520" represents the motor model, "R30" stands for the reduction ratio of 1:30, and "12" signifies the rated voltage of 12V. Please refer to the interface description illustrated in the figure below:
+The motor model employed in this chassis is JGB37-520R30-12. Here's the breakdown: "**J**" signifies a DC motor, "**GB**" denotes an eccentric output shaft, "**37**" indicates the diameter of the reduction box, "**520**" represents the motor model, "**R30**" stands for the reduction ratio of 1:30, and "**12**" signifies the rated voltage of 12V. Please refer to the interface description illustrated in the figure below:
 
-<img src="../_static/media/chapter_1/section_4/02/media/image6.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image6.png" class="common_img" />
 
 * **Wiring**
 
 The example in this section utilizes a Raspberry Pi mainboard, a Raspberry Pi expansion board, and a 4-channel encoded motor driver, powered by an 11.1V 6000mAh lithium battery. The general wiring diagram controlled by the Raspberry Pi is depicted below. In the diagram, the left motor responsible for forward motion of the car is labeled as M1, while the right motor is labeled as M3. It's important to note that the wiring illustration provided is a representation, and the terminal pins correspond to their real counterparts. This depiction does not affect the actual application outcome, and all connections should adhere to the specifications of the real product.
 
-<img src="../_static/media/chapter_1/section_4/02/media/image7.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image7.png" class="common_img" />
 
-<img src="../_static/media/chapter_1/section_4/02/media/image8.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image8.png" class="common_img" />
 
 * **Environment Configuration and Program Running**
 (1) Environment Configuration
@@ -2151,17 +2147,17 @@ First, you must establish a remote connection to the robot, and subsequently, tr
 
 ① Open NoMachine software, and connect the software to the device.
 
-<img src="../_static/media/chapter_1/section_4/02/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image9.png" class="common_img" />
 
 ② Drag the demo file under the **"3 Program"** folder to the system image desktop, as shown in the figure below.
 
-<img src="../_static/media/chapter_1/section_4/02/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image10.png" class="common_img" />
 
-<img src="../_static/media/chapter_1/section_4/02/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image11.png" class="common_img" />
 
 ③ To access the terminal interface using NoMachine, follow these steps: Right-click on the desktop, and choose **"Open Terminal Here"**.
 
-<img src="../_static/media/chapter_1/section_4/02/media/image12.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image12.png" class="common_img" />
 
 ④ Enter the following command to grant executable permissions to the program.
 ```
@@ -2175,7 +2171,7 @@ python3 acker_controller_dark_demo.py
 
 ⑥ After the program is loaded, the car will execute corresponding movements as defined in the program.
 
-<img src="../_static/media/chapter_1/section_4/02/media/image15.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image15.png" class="common_img" />
 
 ⑦ To exit the program, simply press 'Ctrl+C' in the terminal to close it.
 
@@ -2199,9 +2195,10 @@ There is a 1-second interval between each action.
 
 * **Case Analysis**
 
-[Source Code]()
+[Source Code](https://drive.google.com/drive/folders/1INF5ixYUK-4zxY2lJeVi9GMXopfi5Vjm?usp=sharing)
 
 (1) Import Required Module
+
 ```python
 import sys
 import rospy
@@ -2210,6 +2207,7 @@ import pigpio
 import time
 import RPi.GPIO as GPIO
 ```
+
 Import the necessary configuration libraries, with key ones including:
 
 * `sys` for system control;
@@ -2219,6 +2217,7 @@ Import the necessary configuration libraries, with key ones including:
 * `smbus2` for handling I2C communication to control the rotation of the car motor.
 
 (2) Car Related Initialization Parameter Settings
+
 ```python
 car_speed = 0 # car speed
 car_speed_move = 80
@@ -2226,17 +2225,21 @@ car_wheel_angle = 90  # car direction angle, keep default
 car_wheel_rotate = 0  # car yaw parameter, keep default
 car_turn_mode = ['go','back','turn_left','left_back','turn_right','right_back']
 ```
+
 The parameters mentioned above are explained within the program. Among them, **`car_turn_mode`** signifies the current movement state of the car, including forward, backward, left turn, left backward, right turn, and right backward. These states will be referenced in the subsequent sections of the program.
 
 (3) Initialization Parameter Settings Related to Servos
+
 ```python
 # Steering servo control angle
 steering_servor_angle_pulse = 1500  # Center position (500 -- 2500)
 steering_serv_turn_time = 100  # Time to target angle
 ```
+
 You can consult the comments provided. **`Steering_servo_angle_pulse`** utilizes pulse width to control the orientation of the PWM servo. An angle of 0° corresponds to a pulse width of 500, while an angle of 180° corresponds to a pulse width of 2500. When the pulse width is set to 1500, the servo is in a neutral state, meaning the front wheels of the car are straight. We have the flexibility to define the initial width as needed.
 
 (4) Define GPIO port pin 12 to control the PWM servo, specify the output range and frequency, and initialize the servo control position to 1500.
+
 ```python
 pin = 12 # IO port for the front steering wheel servo
 pi = pigpio.pi()
@@ -2248,6 +2251,7 @@ pi.set_PWM_dutycycle(pin, 1500)
 ```
 
 (5) Angle control function (`servo_angle`): This function takes pulse width as input, with 'dc' representing the pulse width passed into the function.
+
 ```python
 def servo_angle(dc):
     pi.set_PWM_dutycycle(pin, dc) #Set pwm pulse width, pin is the pin, i is the pulse width.
@@ -2255,6 +2259,7 @@ def servo_angle(dc):
 ```
 
 (6) Node initialization: This initializes the node, enabling the ROS master node to locate the current program's node location. Subsequently, it publishes messages through ROS to control motor rotation.
+
 ```python
     # Initialize node
     rospy.init_node('car_forward_demo', log_level=rospy.DEBUG)
@@ -2262,12 +2267,14 @@ def servo_angle(dc):
 ```
 
 (7) Chassis control section:
+
 ```python
   # Chassis control
     set_velocity = rospy.Publisher('/chassis_control/set_velocity', SetVelocity, queue_size=1)
     set_velocity.publish(car_speed,car_wheel_angle,car_wheel_rotate)
     servo_angle(steering_servor_angle_pulse)
 ```
+
 **`set_velocity`**: This function controls the car chassis. `"/chassis_control/set_velocity"` denotes the control topic, with 'setVelocity' indicating the message type for control functions. 'queue_size=1' specifies the message queue length, which is set to 1 by default.
 
 **`servo_angle`**: Used for controlling the angle of the bus servo. The input parameter 'steering_servor_angle_pulse' represents the input pulse width, currently set to 1500.
@@ -2278,6 +2285,7 @@ def servo_angle(dc):
 
 In the program fragment below, the car executes actions via a while loop. Different motion modes are determined by the variable 'i', where 'mode' denotes the current motion state. Six motion states are defined. 'car_speed' indicates the speed of movement, while 'steering_servor_angle_pulse' specifies the servo position adjustment.
 ```python
+
 car_turn_mode = ['go','back','turn_left','left_back','turn_right','right_back']
     mode = None  # movement mode
     i = 0
@@ -2311,16 +2319,21 @@ car_turn_mode = ['go','back','turn_left','left_back','turn_right','right_back']
         else:
             print('wait the message')
 ```
+
 The speed and direction of the car chassis movement can be adjusted by modifying the absolute values of these two parameters. It's important to note that in the position control of the bus servo, specifically in controlling the angle through 'steering_servor_angle_pulse', the range is limited to 500-2500. This limitation is intended to ensure that the rotation angle of the front wheels of the car chassis remains within the designed safety range. When 'mode == 'go'', the car is in straight mode, with 'car_speed_move' set to 80. A positive value indicates forward movement, while a negative value indicates backward movement.
+
 ```python
 car_speed_move = 80
 ```
+
 If the **`steering_servor_angle_pulse`** parameter equals 1500, the servo maintains its neutral position.
+
 ```python
         if mode == 'go':
             car_speed = car_speed_move
             steering_servor_angle_pulse = 1500
 ```
+
 A **`steering_servor_angle_pulse`** value less than 1500 indicates a left turn, while a value greater than 1500 indicates a right turn.
 ```python
         elif mode == 'turn_left':
@@ -2331,7 +2344,7 @@ A **`steering_servor_angle_pulse`** value less than 1500 indicates a left turn, 
 * **Development Notices**
 (1) Considering the rated operating voltage of the Raspberry Pi 4B motherboard is 5V, it's essential to note that the four-channel encoded IIC interface (5V, GND, SCL, SDA) solution from the motor drive module cannot be directly used for power supply. This is because the 5V of this interface only supports voltage input and cannot be used for output. However, using other interfaces of the motor driver module to power the Raspberry Pi GPIO is not recommended. It is advised to adopt a dual power supply solution, providing a separate external power supply to the motor drive module. For instance, using an 11.1V lithium battery (fully charged at 12V) to power the motor drive module, and supplying Raspberry Pi 4B with an additional 5V3A power supply for independent power.
 
-<img src="../_static/media/chapter_1/section_4/02/media/image16.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image16.png" class="common_img" />
 
 Here, we clarify that powering the Raspberry Pi through the GPIO port is not recommended due to the following reasons:
 
@@ -2343,7 +2356,7 @@ Here, we clarify that powering the Raspberry Pi through the GPIO port is not rec
 
 The diagram below illustrates the physical pin layout of the Raspberry Pi, featuring two encoding methods: BCM encoding and wiringPi encoding. It is evident from the picture that when writing code, you have the flexibility to set different encoding methods within the program for effective programming.
 
-<img src="../_static/media/chapter_1/section_4/02/media/image17.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_4/image17.png" class="common_img" />
 
 ### 1.4.3 Demo Video
 
