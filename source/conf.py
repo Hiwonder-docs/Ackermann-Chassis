@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Ackermann Chassis'
+project = 'Ackerman Chassis'
 copyright = '2025, Hiwonder'
 author = 'Hiwonder'
 release = 'v1.0'
