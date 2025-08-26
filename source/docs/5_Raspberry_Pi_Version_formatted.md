@@ -176,15 +176,15 @@ First, you must establish a remote connection to the robot, and subsequently, tr
 
 4.  Enter the following command `sudo chmod +x acker_controller_dark_demo.py` to grant executable permissions to the program.
 
-    ```
-    sudo chmod +x acker_controller_dark_demo.py
-    ```
+```
+sudo chmod +x acker_controller_dark_demo.py
+```
 
 5.  Type the command `python3 acker_controller_dark_demo.py` to launch the car's control program.
 
-    ```
-    python3 acker_controller_dark_demo.py
-    ```
+```
+python3 acker_controller_dark_demo.py
+```
 
 6.  After the program is loaded, the car will execute corresponding movements as defined in the program.
 
@@ -211,6 +211,7 @@ After the program is downloaded, the car chassis performs the following actions 
 There is a 1-second interval between each action.
 
 ## 5.5 Case Analysis
+
 [Source Code]()
 
 ### 5.5.1 Import Required Module

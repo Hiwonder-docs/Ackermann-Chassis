@@ -98,4 +98,6 @@ Finally, make sure to have the necessary screw accessories on hand for assembly.
 
 ## 1.3 Double-Layer Version Installation
 
-[Double-Layer Version Installation Video](https://youtu.be/8mtxbLwPIhk)
+<p>
+<iframe width="100%" height="713" src="https://www.youtube.com/embed/8mtxbLwPIhk" title="Ackermann Chassis--Double Layer Version Installation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>

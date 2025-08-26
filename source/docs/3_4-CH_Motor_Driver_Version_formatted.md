@@ -4,35 +4,43 @@
 
 ### 3.1.1 Arduino Introduction to the Required Hardware for Development
 
-[Arduino Introduction to the Required Hardware for Development demo video](https://youtu.be/PWT2Nt6tZuo)
+<p>
+<iframe width="100%" height="713" src="https://www.youtube.com/embed/PWT2Nt6tZuo" title="Ardunio Development Hardware Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
 
 ### 3.1.2 Install the motor drive module
 
-[Install the motor drive module demo video](https://youtu.be/dGeaY-VIu6Q)
+<p>
+<iframe width="100%" height="713" src="https://www.youtube.com/embed/dGeaY-VIu6Q" title="Arduino Development -- Install Motor Driver Module" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
 
 ### 3.1.3 Install the Arduino development board
 
-[Install the Arduino development board demo video](https://youtu.be/ufkTrW1kKQM)
+<p>
+<iframe width="100%" height="713" src="https://www.youtube.com/embed/ufkTrW1kKQM" title="Arduino Development -- Install Arduino Development Board" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
 
 ### 3.1.4 Connection Instructions
 
-[Connection Instructions demo video](https://youtu.be/VxJE-gEcRqI)
+<p>
+<iframe width="100%" height="713" src="https://www.youtube.com/embed/VxJE-gEcRqI" title="Arduino Development -- Battery Wiring" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
 
 ### 3.1.5 Battery connection and power supply precautions
 
-*   **Development Tutorial (Arduino Version)**
+* **Development Tutorial (Arduino Version)**
 
-    (1) Forward for 4 seconds.
+(1) Forward for 4 seconds.
 
-    (2) Back for 4 seconds.
-    
-    (3) Turn left for 4 seconds.
-    
-    (4) Return to the initial position.
-    
-    (5) Forward to the right for 4 seconds.
-    
-    (6) Return to the original position.
+(2) Back for 4 seconds.
+
+(3) Turn left for 4 seconds.
+
+(4) Return to the initial position.
+
+(5) Forward to the right for 4 seconds.
+
+(6) Return to the original position.
 
 ## 3.2 Hardware Introduction
 
@@ -225,8 +233,6 @@ Define the `I2C` communication address and address codes for different types of 
 #define MOTOR_TYPE_N20                    2
 #define MOTOR_TYPE_JGB                    3  //The magnetic ring has 44 pulses per revolution, with a reduction ratio of 131 by default
 ```
-<img src="../_static/media/chapter_4/section_1/02/media/image16.png" class="common_img" />
-
 The 4-channel motor driver module is versatile and supports different motor types, such as `TTL`, `N20`, and `JGB` motors. Here, we use macro definitions to specify these types. For this development, `JGB` motors are employed, and their motor type is macro-defined as `3`.
 
 ### 3.5.4 Control Servo Using Function

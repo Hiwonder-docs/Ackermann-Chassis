@@ -4,7 +4,9 @@
 
 ### 4.2.1 Arduino UNO Assembly demo video
 
-[Arduino UNO Assembly demo video](https://youtu.be/jLTu05SVkwI)
+<p>
+<iframe width="100%" height="713" src="https://www.youtube.com/embed/jLTu05SVkwI" title="Ackermann Chassis Tutorials-Arduino UNO Assembly" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
 
 ### 4.2.2 Ackermann Chassis Bluetooth Control
 
@@ -65,6 +67,7 @@ Import the chassis control library required for this activity.
 ```c
 #include "Akerman_chassis.h"
 ```
+
 (2) Define Variables and Create Objects
 
 ① First, an enumeration type is defined to represent the various control states of the chassis. Then, a key-value pair structure is defined to store the control states. An array of key-value pairs is initialized to map the app's commands to their corresponding control states.
@@ -105,6 +108,7 @@ HashTableEntry table[TABLE_SIZE] = {
     {"p", RIGHT_SPIN}
 };
 ```
+
 ② An `Ackermann chassis control object` is defined, with the initial control state set to `"none"`. A variable is created to store the `speed`, initialized at 150 mm/s. The `speed_limit` variable is used to define the maximum allowable speed.
 
 {lineno-start=37}
@@ -115,6 +119,7 @@ Mode_State key = NULL_KEY;
 float speed = 150.0f;
 float speed_limit = 300.0f;
 ```
+
 (3) Initialize Settings
 
 In the `setup()` function, the serial port is first initialized with a baud rate of `9600` for communication. Then, the Ackermann chassis is initialized.
@@ -126,6 +131,7 @@ void setup() {
   akerman.begin(MINACKER_CHASSIS);
 }
 ```
+
 (4) Main Function
 
 ① In the main function, `Serial.available()` is used to check whether there is incoming Bluetooth data in the buffer. If the value is greater than 0, it means Bluetooth data is available, which is then read using `Serial.read()` and stored in the `cmd` variable. The `lookup()` function is then called to determine the corresponding control state based on the received data.
@@ -139,6 +145,7 @@ void loop() {
     cmd = Serial.read();
     key = lookup(cmd);
 ```
+
 ② Based on the control state, the `akerman.move()` function is called to move the car accordingly. The car can be controlled to stop, move forward, turn left, turn right, or move backward.
 
 {lineno-start=68}
@@ -165,6 +172,7 @@ void loop() {
       akerman.move(-speed, 0.0f);
       break;
 ```
+
 ③ If the parsed data corresponds to speed control, the `speed` variable is increased or decreased by 10 units with each command.
 
 {lineno-start=90}
@@ -204,6 +212,7 @@ void loop() {
       break;
     }
 ```
+
 ④ If the data corresponds to a left or right rotation command, the chassis is controlled to move in a circular path with a radius of 230 mm, either counterclockwise or clockwise. After each command is executed, the received data is cleared to prepare for the next operation.
 
 {lineno-start=104}
@@ -231,6 +240,7 @@ void loop() {
     key = NULL_KEY;
   }
 ```
+
 (5) Key-Value Lookup Function
 
 This function is primarily used to search the predefined list of key-value pairs based on the received data. It returns the corresponding value if a match is found; otherwise, it returns `NULL_KEY`.
@@ -249,6 +259,7 @@ Mode_State lookup(char val)
     return NULL_KEY;
 }
 ```
+
 (6) Chassis Control Function
 
 ① In the chassis control function, motor and servo control values are calculated based on Ackermann kinematics. The parameter `v` controls the motor speed of the car (positive values indicate forward movement, negative values indicate reverse, with units in mm/s). The parameter `r` controls the turning radius of the car (positive for clockwise rotation, negative for counterclockwise rotation, units in mm). When the linear velocity `v` is not zero, the function calculates the speeds for the left and right wheels during turning. Since the right wheel follows a larger radius during a turn, it moves faster than the left wheel, which follows a smaller radius. The turning radius `r` determines these speeds. After calculating the wheel speeds, the steering angle needed for the turn is also computed.
@@ -272,6 +283,7 @@ void Akerman::move(float v, float r)
       akerman_angle = atan(akerman.shaft_length / r);
   }
 ```
+
 ② After obtaining the steering angle, the angular velocity is checked. If the angular velocity is zero, it means the car is moving straight and no steering adjustment is needed. The steering angle is then constrained within the range of -π/5 to π/5 radians to ensure safe turning limits.
 
 {lineno-start=56}
@@ -285,6 +297,7 @@ if(akerman_angle >= PI / 5.0f)
       akerman_angle = -PI / 5.0f;
   }
 ```
+
 ③ Once the steering angle is determined, it is mapped to the servo control value. This value is stored in the `akerman.angle` variable. At the same time, the rotational speeds for the left and right motors are calculated.
 
 {lineno-start=65}
@@ -302,6 +315,7 @@ if(akerman_angle >= PI / 5.0f)
   motor.set_speed(akerman.motor_type, 1, 0, akerman.vr);
   motor.set_speed(akerman.motor_type, 2, 0, akerman.vl); 
 ```
+
 ④ Finally, the servo is commanded to rotate to the calculated angle, and the motors are controlled to rotate at the specified speeds, enabling the Ackermann chassis to move as intended.
 
 {lineno-start=65}
@@ -321,6 +335,7 @@ if(akerman_angle >= PI / 5.0f)
 
 }
 ```
+
 *   **FAQ**
 
 (1) Code upload failed.

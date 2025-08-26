@@ -4,11 +4,15 @@
 
 ### 2.1.1 STM32 Controller Installation & Wiring
 
-[STM32 Installation & Wiring  video](https://youtu.be/oita17M5Ra0)
+<p>
+<iframe width="100%" height="713" src="https://www.youtube.com/embed/oita17M5Ra0" title="Ackermann Chassis--STM32 Controller Installation &amp; Wiring" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
 
 ### 2.1.2 Battery Installation & Wiring
 
-[Battery Installation & Wiring video](https://youtu.be/c_n_P0V7X1Y)
+<p>
+<iframe width="100%" height="713" src="https://www.youtube.com/embed/c_n_P0V7X1Y" title="Ackermann Chassis--Battery Installation &amp; Wiring" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
 
 ## 2.2 Tutorial
 
@@ -19,11 +23,17 @@ Once the program is downloaded, the car chassis executes a sequence of actions i
 **Execution Sequence**
 
 (1) Move forward for 4 seconds
+
 (2) Reverse for 4 seconds
+
 (3) Turn left for 4 seconds
+
 (4) Return to the initial position
+
 (5) Move forward to the right for 4 seconds
+
 (6) Return to the original position
+
 (7) A 1-second interval separates each action.
 
 **Hardware Introduction**
@@ -125,15 +135,19 @@ After the project is compiled completely, download the generated hex file to the
 <img src="../_static/media/chapter_2/section_2/media/image8.png" class="common_img" />
 
 ② Hardware: Type-C cable, STN32 main control board
+
 (2) USB Download Operation Steps
+
 The specific operation steps are as follow:
 ① Hardware connection
+
 Use Type-C cable to connect the Type-C port (UART) of the STM32 control board and the USB port of your computer:
 
 <img src="../_static/media/chapter_2/section_2/media/image9.png" class="common_img" />
 
 [UART1]()
 ② Basic setting
+
 Open FlyMcu. Click **"Enum Port"** at top menu bar, then set the baud rate (bps) as 115200:
 
 <img src="../_static/media/chapter_2/section_2/media/image10.png" class="common_img" />
@@ -147,6 +161,7 @@ Select **"DTR Low(＜-3V)，ISP @RTS High"**:
 <img src="../_static/media/chapter_2/section_2/media/image12.png" class="common_img" />
 
 ③ Software burning
+
 In the FlyMcu software interface, click <img src="../_static/media/chapter_2/section_2/media/image13.png" /> to select the hex file to be burned. The program below is just for your reference, please rely on the actual program. Select the hex file in [03 Program/RosRobotControllerM4_MINACKER/MDK-ARM/ RosRobotControllerM4/RosRobotControllerM4.hex]().
 
 <img src="../_static/media/chapter_2/section_2/media/image14.png" class="common_img" />
@@ -169,18 +184,26 @@ To avoid the presence of any exception during the burning process, please strict
 
 Following the program download, the car chassis executes a sequence of actions in the specified order:
 (1) Move forward for 4 seconds.
+
 (2) Reverse for 4 seconds.
+
 (3) Turn left for 4 seconds.
+
 (4) Return to the initial position.
+
 (5) Move forward to the right for 4 seconds.
+
 (6) Return to the original position.
+
 (7) Each action is separated by a 1-second interval.
 
 * **Source Code Analysis**
   [Source Code]()
 
 (1) Robot Motion Program Analysis
+
 ① Robot Motion Settings
+
 When the Ackerman chassis invokes the `chassis_init()` function to initialize the chassis type, the functions within various chassis structure variables are directed to their respective control functions, as illustrated in the figure below:
 
 {lineno-start=132}
@@ -201,11 +224,17 @@ In the program located at [..\Hiwonder\System\app.c](), the `minacker_control()`
 Within this function, the following actions are executed:
 
 (1)Set the speed of the small Ackerman chassis in the X-axis direction to 300 millimeters per second.
+
 (2)Move the driving wheel forward with the steering wheel in a neutral position, resulting in the car moving straight ahead.
+
 (3)After a 2-second delay, bring the car to a stop for 1 second.
+
 (4)Move the driving wheel backward with the steering wheel in a neutral position, causing the car to move straight backward.
+
 (5)After another 2-second delay, pause for 1 second.
+
 (6)Move the driving wheel forward once more, this time turning the steering wheel left for a left turn.
+
 (7)After a 1-second delay, return the steering wheel to the right direction, concluding the movement.
 This describes the controlled movement of the small Ackerman chassis in the specified program.
 
@@ -245,6 +274,7 @@ void minacker_control(void)
 	osDelay(1000); //Delay for 1 second
 ```
 ② Set Straight Line
+
 Within the file path [..\Hiwonder\Chassis\ackermann_chassis.c](), the movement of the small Ackermann chassis is governed by the kinematic algorithm. The straight-line trajectory of the chassis is specifically regulated using the `set_velocity()` function.
 
 {lineno-start=186}
@@ -309,6 +339,7 @@ void minacker_chassis_move(AckermannChassisTypeDef *self, float vx, float r )
 ```
 
 ③ Set Robot’s Turning
+
 Control the chassis turning using `set_velocity_radius()` function.
 
 {lineno-start=112}
@@ -363,6 +394,7 @@ Left wheel speed formula: <img src="../_static/media/chapter_2/section_2/media/i
 Right wheel speed formula: <img src="../_static/media/chapter_2/section_2/media/image28.png" />
 
 ④ Control Robot to Stop
+
 The `stop()` function is designed to bring the robot to a halt by setting the motor speed to 0, effectively ceasing its movement.
 
 {lineno-start=246}
@@ -377,8 +409,10 @@ static void minacker_stop(void *self)
 }
 ```
 (2) AB Quadrature Encoder Motor Analysis
+
 The preceding analysis establishes the fundamental movements of the car, followed by a detailed examination of motor control specifics.
 ① Initialize Timer
+
 {lineno-start=128}
 
 ```c
@@ -407,6 +441,7 @@ Timer 5 (Encoder measures and captures the speed of the motor)
 Timer 7(update motor speed measurements and regulate the frequency of PID control)
 
 ② Motor Initialization
+
 Before controlling the motor, it is necessary to initialize the relevant motor parameters located in the `app.c` function under the folder [..\Hiwonder\System\app.c]():
 
 {lineno-start=108}
@@ -512,6 +547,7 @@ Use TIM7 to calculate the encoder value once to obtain the speed, as shown in th
     __HAL_TIM_ENABLE(&htim7);
 ```
 ③ Chassis Motor Motion Parameter Initialization
+
 In the program located in [..\Hiwonder\System\app.c](), initialize the motion parameters of the chassis motors. For the Ackermann chassis, use `CHASSIS_TYPE_MINACKER`.
 
 {lineno-start=27}
@@ -585,6 +621,7 @@ After jumping, you can obtain the corresponding parameters of the motor.
 #define MOTOR_JGB520_RPS_LIMIT 1.5f
 ```
 ④ PWM Speed Control
+
 Based on our previous explanation, after setting the velocity along the x-axis and the angular velocity, perform kinematic analysis to obtain the speeds of the left and right motors, denoted as `rps_l` and `rps_r` respectively. Motor 1 corresponds to the left wheel, and Motor 2 corresponds to the right wheel. Finally, use the function `self->set_motors(self, rps_l, rps_r)` to set the motor speeds.
 
 {lineno-start=14}
@@ -734,6 +771,7 @@ Combined with the STM32CubeMX configuration, as shown in the figure below, TIM7 
 According to the following formula, the interrupt period of Timer 7 becomes 0.01 seconds, which means an update interrupt is generated every 10 milliseconds: Timer overflow time = (83+1)×(9999+1)/84MHz = 10 ms
 
 ⑤ Update Encoder Motor to Obtain Speed
+
 Timer 7 generates an update interrupt every 10 ms, which calculates the motor speed and updates PID parameters. Its update interrupt function is as follows (in [..\Core\Src\stm32f4xx_it.c]()), where the encoder motor speed measurement of motor 1 obtained by Timer 5 is updated.
 
 {lineno-start=504}
@@ -816,7 +854,9 @@ void TIM5_IRQHandler(void)
         }
 ```
 (3) PID Stabilizing Target Speed Analysis
+
 ① Positional PID Algorithm
+
 The PID controller update function, `pid_controller_update()`, implements positional PID control. The specific code implementation is shown in the following figure, located at [..\Hiwonder\Misc\pid.c]().
 
 {lineno-start=15}
