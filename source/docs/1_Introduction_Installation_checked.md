@@ -4,7 +4,7 @@
 
 ### 1.1.1 Product Introduction
 
-<img src="../_static/media/chapter_1/section_1/media/image2.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_1/image2.png" class="common_img" />
 
 The Ackermann steering chassis represents a standard configuration extensively employed in the new energy market and is a popular choice within the realm of autonomous driving. Specifically developed by Hiwonder, for educational scenarios, this Ackermann car chassis aligns with the standard structure of modern car chassis. In this design, the rear wheels consistently maintain a parallel orientation, while the inner wheels articulate at an angle during turns. Ackermann steering is characterized by the inner wheel turning at a greater angle than the outer wheel, and the disparity in turning angles is termed Ackermann steering.
 
@@ -18,7 +18,7 @@ Key features of the Ackermann chassis include:
 
 (2) Numerous `M3` and `M4` installation holes are strategically placed, allowing for the installation of various components such as Raspberry Pi, microcontrollers, control systems, Lidar, depth cameras, sensors, and robotic arms.
 
-* High Steering Precision and Reliable Movement
+* **High Steering Precision and Reliable Movement**
 
 (1) The steering structure employs high-precision components and is equipped with precision bearings, ensuring both accuracy and strong load-bearing capacity.
 
@@ -26,7 +26,7 @@ Key features of the Ackermann chassis include:
 
 (3) The Ackermann chassis utilizes high-quality plastic tire treads, offering dense, large friction for a robust grip, anti-skid properties, and precise and reliable car movement.
 
-* Strong Driving Ability
+* **Strong Driving Ability**
 
 (1) Equipped with a high-performance DC reduction motor featuring its own high-precision encoder.
 
@@ -50,11 +50,11 @@ The front wheel transmission system of the Ackerman chassis consists of a steeri
 
 During turns, the two front wheels maintain a parallel alignment, meaning they rotate at the same angle. The control of the rear wheels involves motors and wheels. The robot's forward, backward, and speed movements are regulated by the motor's rotation.
 
-<img src="../_static/media/chapter_1/section_1/media/image3.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_1/image3.png" class="common_img" />
 
 The Ackerman car is equipped with a 520 Hall-coded DC reduction motor—a high-torque, high-load motor with a 12V DC power supply and a reduction ratio of 1:30. This motor design enhances the performance and efficiency of the Ackerman chassis.
 
-<img src="../_static/media/chapter_1/section_1/media/image4.png" class="common_img" />
+<img src="../_static/media/chapter_1/section_1/image4.png" class="common_img" />
 
 * **Physical Characteristic**
 

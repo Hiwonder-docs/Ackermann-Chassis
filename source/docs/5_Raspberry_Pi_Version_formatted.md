@@ -36,7 +36,7 @@ This is a motor drive module designed to work with a microcontroller for driving
 
 The introduction to the interface on the driver is as below:
 
-<table>
+<table class="docutils-nobg" border="1">
 <thead>
 <tr>
 <th>Interface type</th>
@@ -162,13 +162,13 @@ First, you must establish a remote connection to the robot, and subsequently, tr
 
 1. Open `NoMachine` software, and connect the software to the device.
 
-   <img src="../_static/media/chapter_5/section_2/01/media/image9.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_2/01/media/image9.png" class="common_img" />
 
 2. Drag the demo file under the **"3 Program"** folder to the system image desktop, as shown in the figure below.
 
-   <img src="../_static/media/chapter_5/section_2/01/media/image10.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_2/01/media/image10.png" class="common_img" />
 
-   <img src="../_static/media/chapter_5/section_2/01/media/image11.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_2/01/media/image11.png" class="common_img" />
 
 3. To access the terminal interface using `NoMachine`, follow these steps: Right-click on the desktop, and choose **"Open Terminal Here"**.
 
@@ -188,7 +188,7 @@ python3 acker_controller_dark_demo.py
 
 6.  After the program is loaded, the car will execute corresponding movements as defined in the program.
 
-    <img src="../_static/media/chapter_5/section_2/01/media/image15.png" class="common_img" />
+<img src="../_static/media/chapter_5/section_2/01/media/image15.png" class="common_img" />
 
 7.  To exit the program, simply press **'Ctrl+C'** in the terminal to close it.
 

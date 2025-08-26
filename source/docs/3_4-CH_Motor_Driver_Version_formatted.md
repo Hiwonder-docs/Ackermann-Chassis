@@ -60,68 +60,90 @@ This is a motor drive module designed to work with a microcontroller for driving
 
 The introduction to the interface on the driver is as below:
 
-<table>
+<table class="docutils-nobg" border="1">
 <thead>
 <tr>
-<th>Interface Type</th>
-<th>Number</th>
-<th>Function</th> </tr>
+<th>Interface type</th>
+<th>NO.</th>
+<th>Function</th>
+</tr>
 </thead>
 <tbody>
 <tr>
-<td rowspan="7"><strong>Encoder Motor Interface</strong></td> <td>GND</td>
-<td>Negative terminal of Hall power supply</td> </tr>
+<td rowspan="7"><strong>Encoder motor interface</strong></td>
+<td>GND</td>
+<td>Negative electrode of the Hall power</td>
+</tr>
 <tr>
 <td>A</td>
-<td>Output terminal of A phase pulse signal</td> </tr>
+<td>A-phase pulse signal output terminal</td>
+</tr>
 <tr>
 <td>B</td>
-<td>Output terminal of B phase pulse signal</td> </tr>
+<td>B-phase pulse signal output terminal</td>
+</tr>
 <tr>
 <td>VCC</td>
-<td>Positive terminal of Hall power supply</td> </tr>
+<td>Positive electrode of the Hall power</td>
+</tr>
 <tr>
 <td>M+</td>
-<td>Positive terminal of the motor power supply</td> </tr>
+<td>Positive electrode of the motor power supply</td>
+</tr>
 <tr>
 <td>M-</td>
-<td>Motor power negative terminal</td> </tr>
+<td>Positive electrode of the motor power supply</td>
+</tr>
 <tr>
 <td></td>
 <td><strong>Note:</strong><br>
-The voltage between `VCC` and `GND` is determined based on the power supply voltage of the microcontroller being used. Typically, `3.3V` or `5V` is employed. 2. When the spindle rotates clockwise, the output pulse signal of channel `A` is ahead of channel `B`; when the spindle rotates counterclockwise, the signal of channel `A` is behind channel `B`. <br>
-3. The voltage between `M+` and `M-` is determined based on the voltage requirements of the motor used.</td>
+1. The voltage between VCC and GND is determined based on the power supply voltage of the microcontroller used. Typically, 3.3V or 5V is used.<br>
+2. When the spindle rotates clockwise, the output pulse signal of channel A is ahead of channel B; when the spindle rotates counterclockwise, the signal of channel A is behind channel B.<br>
+3. The voltage between M+ and M- is determined based on the voltage requirements of the motor used.</td>
 </tr>
 <tr>
 <td rowspan="4"><strong>IIC</strong></td>
 <td>SCL</td>
-<td>Clock line</td> </tr>
+<td>Clock line</td>
+</tr>
 <tr>
 <td>SDA</td>
-<td>Bidirectional data cable</td> </tr>
+<td>Bi-directional data line</td>
+</tr>
 <tr>
 <td>GND</td>
-<td>Power ground wire</td> </tr>
+<td>Power ground line</td>
+</tr>
 <tr>
 <td>5V</td>
-<td>5V DC output</td> </tr>
+<td>5V DC output</td>
+</tr>
 <tr>
-<td rowspan="1"><strong>3-Pin Power Supply</strong></td> <td>-</td>
-<td>Power negative terminal</td> </tr>
+<td rowspan="1"><strong>3Pin power</strong></td>
+<td>-</td>
+<td>Power negative electrode</td>
+</tr>
 <tr>
-<td rowspan="2"><strong>Port</strong></td> <td>+</td>
-<td>Positive terminal input of power supply</td> </tr>
+<td rowspan="2"><strong>port</strong></td>
+<td>+</td>
+<td>Power positive input</td>
+</tr>
 <tr>
 <td>NC</td>
-<td>Vacant</td> </tr>
+<td>Empty</td>
+</tr>
 <tr>
-<td rowspan="2"><strong>Power Port</strong></td> <td>+</td>
-<td>Positive terminal input of power supply</td> </tr>
+<td rowspan="2"><strong>Power port</strong></td>
+<td>+</td>
+<td>Power positive input</td>
+</tr>
 <tr>
 <td>-</td>
-<td>Power negative terminal</td> </tr>
+<td>Power negative electrode</td>
+</tr>
 </tbody>
 </table>
+
 
 ### 3.2.3 Steering Servo
 
@@ -213,6 +235,7 @@ Once the program is downloaded, the car chassis executes the following actions i
 ```c
 #include <Wire.h>
 ```
+
 The library is integrated into the **"Arduino IDE"**. To add it, navigate to **"Sketch -> Include Library"**. It incorporates write methods for `I2C` communication, enabling the control of motor rotation.
 
 ### 3.5.2 Initialize Communication Address
@@ -233,6 +256,7 @@ The library is integrated into the **"Arduino IDE"**. To add it, navigate to **"
 //For instance, if the total number of pulses of motor 1 is read as P, then the distance traveled is (P/U) * (3.14159*D).
 //For different motors, you can test the pulse number U per revolution by yourself. You can manually rotate 10 revolutions to read the pulse number and then take the average value to obtain it
 ```
+
 Define the `I2C` communication address and address codes for different types of encoded motors as macros, facilitating subsequent calls. The `I2C` communication address connected to the driver board is set as `0x34`; this value is hardware-specific, and the default can be retained here. The encoded motor type is designated as `20`, and its direction polarity is defined as `21`. It's essential to note that these two numbers represent the address positions for writing parameters, not the actual parameter values. These values are hardware-specific, and for simplicity, the default values can be maintained in this context.
 
 ### 3.5.3 Initialize Motor Type
@@ -245,6 +269,7 @@ Define the `I2C` communication address and address codes for different types of 
 #define MOTOR_TYPE_N20                    2
 #define MOTOR_TYPE_JGB                    3  //The magnetic ring has 44 pulses per revolution, with a reduction ratio of 131 by default
 ```
+
 The 4-channel motor driver module is versatile and supports different motor types, such as `TTL`, `N20`, and `JGB` motors. Here, we use macro definitions to specify these types. For this development, `JGB` motors are employed, and their motor type is macro-defined as `3`.
 
 ### 3.5.4 Control Servo Using Function
@@ -260,6 +285,7 @@ void servo(int myangle)
 	delay(20-pulsewidth/1000);				//delayed
 }
 ```
+
 This function utilizes the `myangle` parameter to represent the servo's rotation angle, ranging from 0 to 180 degrees. Subsequently, this parameter is mapped to a pulse width spanning from 0 to 2500 using the `map` function. The signal's duty cycle, crucial for determining the output angle, is determined by this pulse width.
 
 Firstly, a high-level signal is produced via `digitalWrite(servopin, HIGH)`. Then, a simulated duty cycle is generated by producing a high-level signal for the duration specified by `delayMicroseconds(pulsewidth)`. Following this, the function returns to a low-level signal using `digitalWrite(servopin, LOW)`.
@@ -287,6 +313,7 @@ void setup()
 int8_t car_forward[4]={30,-30,-30,30};                  // go forward
 int8_t car_back[4]={-30,30,30,-30};                     // retreat
 ```
+
 The lines **"MOTOR_TYPE_JGB37_520_12V_110RPM"** and **"MotorEncoderPolarity = 0"** serve to define the motor type and encoder polarity, respectively.
 
 `MOTOR_TYPE_JGB37_520_12V_110RPM` is a predefined constant representing a specific motor model with a `12V` voltage requirement and a maximum speed of 110 rpm. Meanwhile, `MotorEncoderPolarity` being set to `0` indicates that the encoder polarity is configured to its default setting.
@@ -337,6 +364,7 @@ Calling `servo(90);` rotates the servo to a 90-degree position. Additionally, fu
   WireWriteDataArray(MOTOR_FIXED_SPEED_ADDR,car_stop,4);
   delay(1000); 
 ```
+
 In the main function, the motor's operating mode is determined using the `WireWriteDataArray` function. Here, we'll focus on the forward movement of the car as an example.
 
 For instance, calling `WireWriteDataArray(MOTOR_FIXED_SPEED_ADDR, car_retreat, 4)` establishes the forward mode. This mode corresponds to the `int8_t car_forward[4] = {-16, 0, 16, 0}` function, which sets the motor rotation speed for the `M1` and `M3` interfaces. Given that the motors' installation directions are opposite, the speed control values in `car_forward` include both positive and negative values (`-16` and `16`). Adjusting the absolute value of this parameter allows fine-tuning of the motor speed: the larger the absolute value, the faster the speed.

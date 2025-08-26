@@ -20,7 +20,7 @@
 
 Once the program is downloaded, the car chassis executes a sequence of actions in the following order:
 
-**Execution Sequence**
+* **Execution Sequence**
 
 (1) Move forward for 4 seconds
 
@@ -36,7 +36,7 @@ Once the program is downloaded, the car chassis executes a sequence of actions i
 
 (7) A 1-second interval separates each action.
 
-**Hardware Introduction**
+* **Hardware Introduction**
 
 (1) STM32 Main Control Module Introduction
 
@@ -89,7 +89,9 @@ The interface instruction is as follow:
     <td>The negative terminal of the power source</td>
   </tr>
 </table>
+
 (2) Steering Servo
+
 <img src="../_static/media/chapter_4/section_1/02/media/image4.png" class="common_img"/>
 
 The steering servo in this chassis utilizes the `LD-1501MG` PWM servo model.
@@ -127,6 +129,7 @@ The Ackerman car's wiring setup is as follows: Connect the front steering servo 
 <img src="../_static/media/chapter_2/section_2/media/image7.png" class="common_img" />
 
 * **Program Download**
+
 [Source Code]()
 
 After the project is compiled completely, download the generated hex file to the STM32 control board. Please prepare the following hardware materials:
@@ -150,6 +153,7 @@ Use Type-C cable to connect the Type-C port (UART) of the STM32 control board an
 <img src="../_static/media/chapter_2/section_2/media/image9.png" class="common_img" />
 
 [UART1]()
+
 ② Basic setting
 
 Open FlyMcu. Click **"Enum Port"** at top menu bar, then set the baud rate (bps) as 115200:
@@ -202,6 +206,7 @@ Following the program download, the car chassis executes a sequence of actions i
 (7) Each action is separated by a 1-second interval.
 
 * **Source Code Analysis**
+
   [Source Code]()
 
 (1) Robot Motion Program Analysis
@@ -218,11 +223,13 @@ When the Ackerman chassis invokes the `chassis_init()` function to initialize th
     //Select the chassis type
     set_chassis_type(Chassis_run_type);
 ```
+
 {lineno-start=27}
 ```c
 //Chassis type (default is the Large Ackerman chassis)
 uint32_t Chassis_run_type = CHASSIS_TYPE_JETACKER;
 ```
+
 In the program located at [..\Hiwonder\System\app.c](), the `minacker_control()` function is employed to manage the movement of the small Ackerman chassis. Here's a concise description of its functionality:
 
 Within this function, the following actions are executed:
@@ -278,6 +285,7 @@ void minacker_control(void)
 	chassis->stop(chassis); //stop
 	osDelay(1000); //Delay for 1 second
 ```
+
 ② Set Straight Line
 
 Within the file path [..\Hiwonder\Chassis\ackermann_chassis.c](), the movement of the small Ackermann chassis is governed by the kinematic algorithm. The straight-line trajectory of the chassis is specifically regulated using the `set_velocity()` function.
@@ -287,6 +295,7 @@ Within the file path [..\Hiwonder\Chassis\ackermann_chassis.c](), the movement o
 	//Move at a linear velocity of speed along the X-axis (i.e., move forward)
 	chassis->set_velocity(chassis, speed, 0, 0);
 ```
+
 {lineno-start=117}
 ```c
 void ackermann_chassis_object_init(AckermannChassisTypeDef *self){
@@ -302,6 +311,7 @@ void ackermann_chassis_object_init(AckermannChassisTypeDef *self){
 	}
 }
 ```
+
 {lineno-start=107}
 ```c
 static void minacker_set_velocity(void *self, float vx, float vy, float r)
@@ -309,6 +319,7 @@ static void minacker_set_velocity(void *self, float vx, float vy, float r)
     minacker_chassis_move(self, vx, r);
 }
 ```
+
 The kinematic solution for the Ackermann chassis is depicted in the accompanying figure. To achieve regular car movement, the calculation involves determining the speed of each Ackermann motor. When the car moves straight, with a turning radius of 0 and a turning angle of 0 degrees, the speeds of the left and right wheels (`vl` and `vr`) are synchronized with the speed of `vx`. The `set_motors()` function is then employed to establish these motor speeds, with the servo angle set to 1500 to maintain a centered position. This comprehensive process ensures the Ackermann chassis exhibits consistent and predictable movements, particularly during straight-line motion.
 
 {lineno-start=57}
@@ -354,6 +365,7 @@ static void minacker_set_velocity_radius(void* self, float linear, float r,bool 
 		minacker_chassis_move(self, linear, r);
 }
 ```
+
 During turns, the rear motors operate similarly to when the robot moves straight ahead. The turning angle of the servo is computed based on the turning radius (`r`) and the length of the vehicle body shaft (`shaft_length`, i.e., the distance between the front and rear wheels). To determine the speeds (`vl` and `vr`) of the left and right driving wheels, respectively, the axis length (`wheelbase`) of the two wheels and the linear speed (`vx`) of the movement are considered. The function `linear_speed_to_rps()` converts the linear wheel speed into rotational speed, and the turning angle is restricted to prevent servo damage, capped at ±40 degrees. The expression `angle = -2000/PI * angle + 1500;` converts the servo angle value into a control value for servo rotation, with 1500 as the initial centering value for the servo.
 
 Subsequently, the `set_motors(self, vl, vr, angle);` function assigns the motor and servo values to the motor motion control function, ultimately regulating the motion of both the motor and servo.
@@ -388,6 +400,7 @@ void minacker_chassis_move(AckermannChassisTypeDef *self, float vx, float r )
 	self->set_motors(self , vl , vr , angle);
 }
 ```
+
 The figure below illustrates the application of Ackermann's kinematics formula in the program, providing a visual representation of the kinematic principles employed.
 
 <img src="../_static/media/chapter_2/section_2/media/image25.png" class="common_img" />
@@ -406,6 +419,7 @@ The `stop()` function is designed to bring the robot to a halt by setting the mo
 ```c
 	chassis->stop(chassis); //stop
 ```
+
 {lineno-start=102}
 ```c
 static void minacker_stop(void *self)
@@ -413,6 +427,7 @@ static void minacker_stop(void *self)
     ((AckermannChassisTypeDef*)self)->set_motors(self, 0, 0,1500);
 }
 ```
+
 (2) AB Quadrature Encoder Motor Analysis
 
 The preceding analysis establishes the fundamental movements of the car, followed by a detailed examination of motor control specifics.
@@ -424,14 +439,17 @@ The preceding analysis establishes the fundamental movements of the car, followe
 ```c
 MX_TIM1_Init();
 ```
+
 {lineno-start=130}
 ```c
 MX_TIM5_Init();
 ```
+
 {lineno-start=139}
 ```c
 MX_TIM7_Init();
 ```
+
 In the main function within the `main.c` file, several timers are initialized. We will focus on elucidating the motor control process for Motor 1, with the understanding that the control mechanisms for the other motors remain identical. Motor 1 involves the utilization of three timers: Timer 1 (for PWM control of motor speed), Timer 5 (for obtaining motor speed through encoder), and Timer 7 (for timed interrupts to update motor speed measurements and PID control frequency). Additionally, interrupt initialization is performed. The figure below illustrates the parameter configuration in STM32CubeMX, and for a more intuitive view, it is recommended to refer to the `tim.c` file or use the STM32CubeMX software interface for configuration settings.
 
 <img src="../_static/media/chapter_2/section_2/media/image34.png" class="common_img" />
@@ -455,6 +473,7 @@ Before controlling the motor, it is necessary to initialize the relevant motor p
     /* hardware initialization*/
     motors_init();      //Motor initialization
 ```
+
 The below code segment shows the initialization of the motor, located in [..\Hiwonder\motor_porting.c](). It initializes the motor structure. In the next section, "Chassis Motor Motion Parameter Initialization", the parameters of this motor will be overridden. Pay attention to selecting the appropriate chassis type.
 
 {lineno-start=43}
@@ -479,12 +498,14 @@ void motors_init(void)
     __HAL_TIM_ENABLE(&htim1);
     __HAL_TIM_MOE_ENABLE(&htim1);
 ```
+
 `LWMEM_CCM_MALLOC()` dynamically creates a group of objects, allocating memory for objects of type `EncoderMotorObjectTypeDef`, and stores the memory address in the corresponding position of the `motors` array. The following is the structure parameters for `motor1`, located in [...\Hiwonder\Peripherals\encoder_motor.h](). For specific parameter contents, please refer to the annotations shown in the figure.
 
 {lineno-start=46}
 ```c
         motors[i] = LWMEM_CCM_MALLOC(sizeof( EncoderMotorObjectTypeDef));
 ```
+
 {lineno-start=20}
 ```c
 /**
@@ -499,12 +520,14 @@ struct EncoderMotorObject{
     int current_pulse;      /**< @brief The current output PWM value has a sign corresponding to the forward and reverse rotation */
     PID_ControllerTypeDef pid_controller; /**< @brief PID controller */
 ```
+
 Initialize the defined structure (`encoder_motor_object_init`), located in [...\Hiwonder\Portings\motor_porting.c]().
 
 {lineno-start=47}
 ```c
         encoder_motor_object_init(motors[i]);
 ```
+
 The following program is located in [..\Hiwonder\Peripherals\encoder_motor.c]():
 
 {lineno-start=72}
@@ -521,6 +544,7 @@ void encoder_motor_object_init(EncoderMotorObjectTypeDef *self)
 	pid_controller_init(&self->pid_controller, 0, 0, 0);
 }
 ```
+
 Use Timer 1 to generate PWM signal, as shown in the below figure:
 
 {lineno-start=57}
@@ -531,6 +555,7 @@ Use Timer 1 to generate PWM signal, as shown in the below figure:
     __HAL_TIM_ENABLE(&htim1);
     __HAL_TIM_MOE_ENABLE(&htim1);
 ```
+
 Use TIM5 to control the acquisition and start the encoder of the motor, as shown in the following figure:
 
 {lineno-start=63}
@@ -542,6 +567,7 @@ Use TIM5 to control the acquisition and start the encoder of the motor, as shown
     __HAL_TIM_ENABLE(&htim5);
     HAL_TIM_Encoder_Start(&htim5, TIM_CHANNEL_ALL);
 ```
+
 Use TIM7 to calculate the encoder value once to obtain the speed, as shown in the following figure:
 
 {lineno-start=114}
@@ -552,6 +578,7 @@ Use TIM7 to calculate the encoder value once to obtain the speed, as shown in th
     __HAL_TIM_ENABLE_IT(&htim7, TIM_IT_UPDATE);
     __HAL_TIM_ENABLE(&htim7);
 ```
+
 ③ Chassis Motor Motion Parameter Initialization
 
 In the program located in [..\Hiwonder\System\app.c](), initialize the motion parameters of the chassis motors. For the Ackermann chassis, use `CHASSIS_TYPE_MINACKER`.
@@ -561,6 +588,7 @@ In the program located in [..\Hiwonder\System\app.c](), initialize the motion pa
 //Chassis type (default is the Large Ackerman chassis)
 uint32_t Chassis_run_type = CHASSIS_TYPE_JETACKER;
 ```
+
 {lineno-start=132}
 ```c
     //Initialize the motion parameters of the chassis motor
@@ -568,6 +596,7 @@ uint32_t Chassis_run_type = CHASSIS_TYPE_JETACKER;
     //Select the chassis type
     set_chassis_type(Chassis_run_type);
 ```
+
 In the program located in [..\Hiwonder\Portings\chassis_porting.c](), the `chassis_init()` function initializes the motion parameters for the car chassis motors.
 
 {lineno-start=73}
@@ -575,6 +604,7 @@ In the program located in [..\Hiwonder\Portings\chassis_porting.c](), the `chass
 void chassis_init(void)
 {
 ```
+
 {lineno-start=113}
 ```c
 	//Initialization of the small Ackermann chassis structure
@@ -587,6 +617,7 @@ void chassis_init(void)
 	ackermann_chassis_object_init(&minacker); //The initialization of the structure is placed later
 }
 ```
+
 The macro definitions for the parameters are located in [..\Hiwonder\Chassis\chassis.h](). Among them, `WHEEL_DIAMETER` represents the diameter of the wheels. `SHAFT_LENGTH` represents the shaft length, i.e., the distance between the left and right wheels. `CORRECTION_FACTOR` is the conversion ratio coefficient, which is currently not in use.
 
 {lineno-start=55}
@@ -596,6 +627,7 @@ The macro definitions for the parameters are located in [..\Hiwonder\Chassis\cha
 #define MINACKER_SHAFT_LENGTH 170.0 /* mm */
 #define MINACKER_WHEELBASE  180.0 /* mm */
 ```
+
 Following initializes the motor of the ackerman chassis car.
 
 {lineno-start=96}
@@ -603,6 +635,7 @@ Following initializes the motor of the ackerman chassis car.
 void set_chassis_type(uint8_tchassis_type)
 {
 ```
+
 {lineno-start=162}
 ```c
 		case CHASSIS_TYPE_MINACKER:
@@ -613,6 +646,7 @@ void set_chassis_type(uint8_tchassis_type)
             set_motor_type(motors[3], MOTOR_TYPE_JGB520);
             break;
 ```
+
 After jumping, you can obtain the corresponding parameters of the motor.
 
 {lineno-start=112}
@@ -626,6 +660,7 @@ After jumping, you can obtain the corresponding parameters of the motor.
 #define MOTOR_JGB520_PID_KD  2.4f
 #define MOTOR_JGB520_RPS_LIMIT 1.5f
 ```
+
 ④ PWM Speed Control
 
 Based on our previous explanation, after setting the velocity along the x-axis and the angular velocity, perform kinematic analysis to obtain the speeds of the left and right motors, denoted as `rps_l` and `rps_r` respectively. Motor 1 corresponds to the left wheel, and Motor 2 corresponds to the right wheel. Finally, use the function `self->set_motors(self, rps_l, rps_r)` to set the motor speeds.
@@ -641,6 +676,7 @@ void diff_chassis_move(DifferentialChassisTypeDef *self,float vx，float angule_
 	self->set_motors(self,rps_1,rps_r);
 }
 ```
+
 We have selected the `MINACKER` Ackermann chassis vehicle. The function `tankblack_set_motors` sets the speeds of the two motors.
 
 {lineno-start=113}
@@ -655,6 +691,7 @@ We have selected the `MINACKER` Ackermann chassis vehicle. The function `tankbla
 	ackermann_chassis_object_init(&minacker); //The initialization of the structure is placed later
 }
 ```
+
 Navigate to the `minacker_set_motors` function, depicted in the figure below, to configure the motor speeds for both Motor 1 and Motor 2.
 
 {lineno-start=59}
@@ -671,6 +708,7 @@ static void minacker_set_motors(void* self, float rps_lh, float rps_lt,int posit
     encoder_motor_set_speed(motors[0], rps_lt);
 }
 ```
+
 In the program located in [..\Hiwonder\Peripherals\encoder_motor.c](), implement speed limitation and set the target speed for the PID controller.
 
 {lineno-start=60}
@@ -681,6 +719,7 @@ void encoder_motor_set_speed(EncoderMotorObjectTypeDef *self, float rps)
     self->pid_controller.set_point = rps; /* Set the PID controller target */
 }
 ```
+
 The `encoder_motor_control()` function is responsible for updating the speed control of the encoder motor. It adjusts the PWM value to stabilize the motor at the previously set target speed. First, it updates the PID parameters, then corrects the output PWM, and finally sets the new PWM signal using `self->set_pulse()`. The specific implementation of the program is as follows (in [..\Hiwonder\Peripherals\encoder_motor.c]()):
 
 {lineno-start=32}
@@ -706,17 +745,20 @@ void encoder_motor_control(EncoderMotorObjectTypeDef *self, float period)
     self->current_pulse = pulse; /* Record the new PWM value */
 }
 ```
+
 `self->set_pulse` passes the PWM value to the `motor1_set_pulse()` function. When the speed is positive, it starts `TIM_CHANNEL_4` (forward). When the speed is negative, it starts `TIM_CHANNEL_3` (reverse). When the speed is zero, both channels stop, and the motor does not rotate. As shown in the figure below, located in [..\Hiwonder\Portings\motor_porting.c]().
 
 {lineno-start=49}
 ```c
 	self->set_pulse(self, pulse > -250 && pulse < 250 ? 0 : pulse);
 ```
+
 {lineno-start=57}
 ```c
     /* Madagascar 1 */
     motors[0]->set_pulse = motor1_set_pulse;
 ```
+
 {lineno-start=123}
 ```c
 static void motor1_set_pulse(EncoderMotorObjectTypeDef *self, int speed)
@@ -735,6 +777,7 @@ static void motor1_set_pulse(EncoderMotorObjectTypeDef *self, int speed)
     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
 }
 ```
+
 Combined with the STM32CubeMX configuration, as shown in the figure below, the TIM1 clock frequency is 84MHz, the prescaler value is 839, and the counting period is 999. In each PWM cycle, the timer counter counts from 0 to 999. The "pulse" represents the PWM duty cycle. When the counter reaches the duty cycle value, the high and low voltage levels are inverted, and the counter resets when it reaches 999. "Pulse" is used to set the timer's compare-match register, thereby controlling the PWM signal's duty cycle.
 
 <img src="../_static/media/chapter_2/section_2/media/image34.png" class="common_img" />
@@ -751,6 +794,7 @@ Adjusting the PWM duty cycle enables the motor to adjust between maximum and min
 ```c
 #define MOTOR_JGB520_RPS_LIMIT 1.5f
 ```
+
 According to the interrupt function of Timer 7, it updates every 10 milliseconds, and the PWM value is used to control the motor speed.
 
 {lineno-start=504}
@@ -770,6 +814,7 @@ void TIM7_IRQHandler(void)
 		}
     }
 ```
+
 Combined with the STM32CubeMX configuration, as shown in the figure below, TIM7 is connected to APB1, with a clock frequency of 84MHz, which means a 84 prescaler gives a frequency of 1MHz.
 
 <img src="../_static/media/chapter_2/section_2/media/image65.png" class="common_img" />
@@ -797,6 +842,7 @@ void TIM7_IRQHandler(void)
 		}
     }
 ```
+
 The `encoder_update()` function calculates and updates the motor speed based on the count obtained from the encoder. It calculates the motor speed based on the count of the encoder. `overflow_num` represents the number of overflows of Timer 5, which will be further detailed in the following content. `delta_count` represents the change in the encoder count within the timer period.
 
 The TPS (Ticks Per Second) is calculated to determine the pulse frequency (i.e., the number of pulses per second). It is achieved by dividing the change in count by the time interval. Here, a filter is applied (with coefficients of 0.9 and 0.1) to smooth the result.
@@ -824,6 +870,7 @@ void encoder_update(EncoderMotorObjectTypeDef *self, float period, int64_t count
     self->rps = self->tps / self->ticks_per_circle; /* The unit for calculating rotational speed is rps, which is revolutions per second */
 }
 ```
+
 According to the motor manual, this motor generates 11 pulses per revolution of its shaft, and the gear ratio of the motor is 45:1. The timer is set to use a quadrature counting mode with a 4x frequency, meaning that for every rotation of the motor output shaft, the counter value changes by 11.0 * 4.0 * 30.0 = 1320. Therefore, whenever the motor's output shaft completes one revolution, the encoder interface records an increase of 3960 in the counter value. This information can be found in [..\Hiwonder\Portings\motors_param.h]()
 
 {lineno-start=15}
@@ -837,6 +884,7 @@ According to the motor manual, this motor generates 11 pulses per revolution of 
 #define MOTOR_JGB520_PID_KD  2.4f
 #define MOTOR_JGB520_RPS_LIMIT 1.5f
 ```
+
 <img src="../_static/media/chapter_2/section_2/media/image68.png" class="common_img" />
 
 From the following diagram, we can see that the 4x frequency counting mode counts each pulse four times.
@@ -859,6 +907,7 @@ void TIM5_IRQHandler(void)
             ++motors[0]->overflow_num;
         }
 ```
+
 (3) PID Stabilizing Target Speed Analysis
 
 ① Positional PID Algorithm
@@ -880,20 +929,21 @@ void pid_controller_update(PID_ControllerTypeDef *self, float actual, float time
 
 }
 ```
+
 The `"err"` variable represents the error between the current target value and the actual value: it calculates the difference between the setpoint (`self->set_point`, desired speed) and the actual measured value (`actual`, current speed).
 
-**Error = Setpoint - Actual Value**
+* **Error = Setpoint - Actual Value**
 
 The proportional (P) term, represented by `"proportion,"` is the difference between the current error and the previous error. It is used to calculate the derivative.
 
-**Proportional = Error - Previous Error**
+* **Proportional = Error - Previous Error**
 
 The integral (I) term, represented by `"integral,"` accumulates the error over time. It is used in conjunction with the derivative term to calculate the overall control signal. This term calculates the integral of the error over time, helping to eliminate long-term steady-state errors.
 
-**Integral = Error x Time Interval**
+* **Integral = Error x Time Interval**
 
 The derivative (D) term, represented by `"derivative,"` calculates the rate of change of the error. It predicts the future behavior of the system and quickly responds to changes in the error.
 
-**Derivative = (Error - 2 x Previous Previous Error + Previous Error) / Time Interval**
+* **Derivative = (Error - 2 x Previous Previous Error + Previous Error) / Time Interval**
 
 Converting PID output to PWM value: Finally, the function stores the output in the `PID_ControllerTypeDef` as `"output."` After calling the `pid_controller_update` function, the output of the PID controller (`self->output`) can be used to adjust the PWM signal.
