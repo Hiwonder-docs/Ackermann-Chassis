@@ -185,11 +185,11 @@ The `Arduino Uno` is outfitted with a 4-channel motor driver. It operates using 
 
 ### 3.4.1 Environment Configuration
 
-Prior to downloading, ensure that the **"Arduino IDE"** is installed on your computer. You can find the software package in the [2. Software Tools->01 Arduino Installation Package]().
+Prior to downloading, ensure that the **"Arduino IDE"** is installed on your computer. You can find the software package in the [2. Software Tools->01 Arduino Installation Package](Appendix.md).
 
 ### 3.4.2 Program Running
 
-Open the `control.ino` program saved in [3. Programs->control]() using **"Arduino IDE"**.
+Open the `control.ino` program saved in [3. Programs->control](../_static/source_code/cotrol.zip) using **"Arduino IDE"**.
 
 (1) Choose the Arduino development board type. In this case, select **"Arduino UNO"**.
 
@@ -227,7 +227,7 @@ Once the program is downloaded, the car chassis executes the following actions i
 
 ## 3.5 Program Analysis
 
-[Source Code]()
+[Source Code](../_static/source_code/cotrol.zip)
 
 ### 3.5.1 Import Necessary Library
 

@@ -32,7 +32,7 @@ Connect the Bluetooth module to the Bluetooth port of the expansion board as bel
 
 *   **Program Download**
 
-[Source Code]()
+[Source Code](../_static/source_code/Akerman_app.zip)
 
 ::: {Note}
 *   Please remove the Bluetooth module before downloading the program. Otherwise, a serial port conflict may occur, resulting in a failed download.
@@ -53,11 +53,11 @@ Connect the Bluetooth module to the Bluetooth port of the expansion board as bel
 
 *   **Program Outcome**
 
-Once the mobile app is connected to the Bluetooth module, you can control the Ackermann chassis movement directly through the app’s buttons.
+Once the mobile app is connected to the Bluetooth module, you can control the Ackermann chassis movement directly through the app's buttons.
 
 *   **Program Analysis**
 
-[Source Code]()
+[Source Code](../_static/source_code/Akerman_app.zip)
 
 (1) Import Library Files
 
