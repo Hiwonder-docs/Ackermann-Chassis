@@ -16,6 +16,5 @@ Ackerman Chassis
    docs/3_4-CH_Motor_Driver_Version_formatted.md
    docs/4_UNO_Expansion_Version_formatted.md
    docs/5_Raspberry_Pi_Version_formatted.md
-   docs/6_Raspberry_Pi_Installation_Wiring_formatted.md
    docs/Appendix.md
    Download <https://drive.google.com/drive/folders/1Jcs9PcTw3cJdfZzUECddxVQQZ6stYKqJ?usp=sharing>
