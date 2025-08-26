@@ -18,19 +18,19 @@ Key features of the Ackermann chassis include:
 
 (2) Numerous `M3` and `M4` installation holes are strategically placed, allowing for the installation of various components such as Raspberry Pi, microcontrollers, control systems, Lidar, depth cameras, sensors, and robotic arms.
 
-(1) High Steering Precision and Reliable Movement
+* High Steering Precision and Reliable Movement
 
-① The steering structure employs high-precision components and is equipped with precision bearings, ensuring both accuracy and strong load-bearing capacity.
+(1) The steering structure employs high-precision components and is equipped with precision bearings, ensuring both accuracy and strong load-bearing capacity.
 
-② Enhanced steering power is provided by a 15KG high-torque digital servo.
+(2) Enhanced steering power is provided by a 15KG high-torque digital servo.
 
-③ The Ackermann chassis utilizes high-quality plastic tire treads, offering dense, large friction for a robust grip, anti-skid properties, and precise and reliable car movement.
+(3) The Ackermann chassis utilizes high-quality plastic tire treads, offering dense, large friction for a robust grip, anti-skid properties, and precise and reliable car movement.
 
-(2) Strong Driving Ability
+* Strong Driving Ability
 
-① Equipped with a high-performance DC reduction motor featuring its own high-precision encoder.
+(1) Equipped with a high-performance DC reduction motor featuring its own high-precision encoder.
 
-② The motor operates at a rated voltage of 12V, delivering strong horsepower and excellent performance.
+(2) The motor operates at a rated voltage of 12V, delivering strong horsepower and excellent performance.
 
 In conjunction with this course, participants will gain insights into:
 

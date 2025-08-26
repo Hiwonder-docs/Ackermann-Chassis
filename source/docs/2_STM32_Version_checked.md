@@ -39,6 +39,7 @@ Once the program is downloaded, the car chassis executes a sequence of actions i
 **Hardware Introduction**
 
 (1) STM32 Main Control Module Introduction
+
 The controller utilizes the `STM32F407VET6` and the motor drive chip employed is the `YX4055` (over-current protection). The voltage range is from 3V to 12V, depending on the actual voltage applied to the motor. The interface layout is as follow:
 
 <img src="../_static/media/chapter_2/section_2/media/image2.png" class="common_img" />
@@ -110,6 +111,7 @@ The above picture is the PWM servo wiring interface diagram, and the following t
 | Black wire | Ground wire |
 
 (3) Encoder Geared Motor
+
 The motor model employed by the suspension Ackermann chassis is `JGB37-520R30-12`, where J represents a DC motor, GB represents an electronic output shaft, 520 represents the motor type, R30 represents a reduction ratio of 1:30, 12 represents the a rated voltage of 12V. Its interface description is shown in the figure below:
 
 <img src="../_static/media/chapter_2/section_2/media/image5.png" class="common_img" />
@@ -130,6 +132,7 @@ The Ackerman car's wiring setup is as follows: Connect the front steering servo 
 After the project is compiled completely, download the generated hex file to the STM32 control board. Please prepare the following hardware materials:
 
 (1) Software & Hardware Preparation for USB Download
+
 ① Software: `FlyMcu` (it is located in [2. Software Tools/ 01 STM32 Installation Pack/ USB Serial Port Download/ FlyMcu]())
 
 <img src="../_static/media/chapter_2/section_2/media/image8.png" class="common_img" />
@@ -139,6 +142,7 @@ After the project is compiled completely, download the generated hex file to the
 (2) USB Download Operation Steps
 
 The specific operation steps are as follow:
+
 ① Hardware connection
 
 Use Type-C cable to connect the Type-C port (UART) of the STM32 control board and the USB port of your computer:
@@ -236,6 +240,7 @@ Within this function, the following actions are executed:
 (6)Move the driving wheel forward once more, this time turning the steering wheel left for a left turn.
 
 (7)After a 1-second delay, return the steering wheel to the right direction, concluding the movement.
+
 This describes the controlled movement of the small Ackerman chassis in the specified program.
 
 {lineno-start=230}
@@ -411,6 +416,7 @@ static void minacker_stop(void *self)
 (2) AB Quadrature Encoder Motor Analysis
 
 The preceding analysis establishes the fundamental movements of the car, followed by a detailed examination of motor control specifics.
+
 ① Initialize Timer
 
 {lineno-start=128}

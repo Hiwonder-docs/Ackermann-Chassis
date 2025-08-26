@@ -160,17 +160,17 @@ Prior to downloading, ensure that the **"Arduino IDE"** is installed on your com
 
 First, you must establish a remote connection to the robot, and subsequently, transfer the program files to the designated directory within the system.
 
-1.  Open `NoMachine` software, and connect the software to the device.
+1. Open `NoMachine` software, and connect the software to the device.
 
-    <img src="../_static/media/chapter_5/section_2/01/media/image9.png" class="common_img" />
+   <img src="../_static/media/chapter_5/section_2/01/media/image9.png" class="common_img" />
 
-2.  Drag the demo file under the **"3 Program"** folder to the system image desktop, as shown in the figure below.
+2. Drag the demo file under the **"3 Program"** folder to the system image desktop, as shown in the figure below.
 
-    <img src="../_static/media/chapter_5/section_2/01/media/image10.png" class="common_img" />
+   <img src="../_static/media/chapter_5/section_2/01/media/image10.png" class="common_img" />
 
-    <img src="../_static/media/chapter_5/section_2/01/media/image11.png" class="common_img" />
+   <img src="../_static/media/chapter_5/section_2/01/media/image11.png" class="common_img" />
 
-3.  To access the terminal interface using `NoMachine`, follow these steps: Right-click on the desktop, and choose **"Open Terminal Here"**.
+3. To access the terminal interface using `NoMachine`, follow these steps: Right-click on the desktop, and choose **"Open Terminal Here"**.
 
 <img src="../_static/media/chapter_5/section_2/01/media/image12.png" class="common_img" />
 

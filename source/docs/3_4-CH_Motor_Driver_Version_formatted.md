@@ -189,7 +189,19 @@ Open the `control.ino` program saved in [3. Programs->control]() using **"Arduin
 
 ### 3.4.3 Program Outcome
 
-Once the program is downloaded, the car chassis executes the following actions in sequence: (1) Move forward for 4 seconds; (2) Move backward for 4 seconds; (3) Turn left for 4 seconds; (4) Return to the initial position; (5) Move forward to the right for 4 seconds; (6) Return to the original position. There is a 1-second interval between each action.
+Once the program is downloaded, the car chassis executes the following actions in sequence: 
+
+(1) Move forward for 4 seconds; 
+
+(2) Move backward for 4 seconds; 
+
+(3) Turn left for 4 seconds; 
+
+(4) Return to the initial position; 
+
+(5) Move forward to the right for 4 seconds;
+
+ (6) Return to the original position. There is a 1-second interval between each action.
 
 ## 3.5 Program Analysis
 
