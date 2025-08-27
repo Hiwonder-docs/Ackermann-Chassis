@@ -394,13 +394,13 @@ In this section, the car is controlled to move by receiving data sent from the m
 
 *   **Program Logic**
 
-<img src="Y:\20 网站资料\英文\Accessories\Ackermann Chassis\source\_static\media\chapter_3\section_2\02\media\image2.png" class="common_img" />
+<img src="../_static/media\chapter_3\section_2\02\media\image2.png" class="common_img" />
 
 *   **Bluetooth Module**
 
 (1) Module Introduction
 
-<img src="Y:\20 网站资料\英文\Accessories\Ackermann Chassis\source\_static\media\chapter_3\section_2\02\media\image3.png" class="common_img" />
+<img src="../_static/media\chapter_3\section_2\02\media\image3.png" class="common_img" />
 
 The Bluetooth module is a hardware component that integrates Bluetooth communication capabilities and is commonly used for wireless data transmission between electronic devices. It fundamentally communicates through a `UART serial interface`.
 
@@ -408,7 +408,7 @@ The Bluetooth module is a hardware component that integrates Bluetooth communica
 
 Connect the Bluetooth module to the Bluetooth port of the expansion board as below:
 
-<img src="Y:\20 网站资料\英文\Accessories\Ackermann Chassis\source\_static\media\chapter_3\section_2\02\media\image4.png" class="common_img" />
+<img src="../_static/media\chapter_3\section_2\02\media\image4.png" class="common_img" />
 
 *   **Program Download**
 
@@ -422,15 +422,15 @@ Connect the Bluetooth module to the Bluetooth port of the expansion board as bel
 
 (1) Locate and open the program file **"3.2.3 Programs\Akerman_app\Akerman_app.ino"** in the same directory as this section.
 
-<img src="Y:\20 网站资料\英文\Accessories\Ackermann Chassis\source\_static\media\chapter_3\section_2\02\media\image5.png" class="common_img" />
+<img src="../_static/media\chapter_3\section_2\02\media\image5.png" class="common_img" />
 
 (2) Connect the Arduino to your computer using a Type-B USB data cable. Click on **"Select Board"** — the software will automatically detect the current Arduino port. Click to establish the connection.
 
-<img src="Y:\20 网站资料\英文\Accessories\Ackermann Chassis\source\_static\media\chapter_3\section_2\02\media\image6.png" class="common_img" />
+<img src="../_static/media\chapter_3\section_2\02\media\image6.png" class="common_img" />
 
-(3) Click the **Upload** <img src="Y:\20 网站资料\英文\Accessories\Ackermann Chassis\source\_static\media\chapter_3\section_2\02\media\image7.png" /> button to download the program to the Arduino. Wait for the upload to complete.
+(3) Click the **Upload** <img src="../_static/media\chapter_3\section_2\02\media\image7.png" /> button to download the program to the Arduino. Wait for the upload to complete.
 
-<img src="Y:\20 网站资料\英文\Accessories\Ackermann Chassis\source\_static\media\chapter_3\section_2\02\media\image8.png" class="common_img" />
+<img src="../_static/media\chapter_3\section_2\02\media\image8.png" class="common_img" />
 
 *   **Program Outcome**
 
