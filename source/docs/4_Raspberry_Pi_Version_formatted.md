@@ -1,40 +1,40 @@
-# 5. Development Tutorial (Raspberry Pi Version)
+# 4. Raspberry Pi Version
 
-## 5.1 Raspberry Pi Setup and Demo Videos
+## 4.1 Raspberry Pi Setup and Demo Videos
 
-### 5.1.1 Required Components for Raspberry Pi Development demo video
+### 4.1.1 Required Components for Raspberry Pi Development demo video
 
 <p>
 <iframe width="100%" height="713" src="https://www.youtube.com/embed/RvQpazh0ysU" title="Ackermann Chassis--Required Components for Raspberry Pi Development" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </p>
 
-### 5.1.2 Install the motor drive module demo video
+### 4.1.2 Install the motor drive module demo video
 
 <p>
 <iframe width="100%" height="713" src="https://www.youtube.com/embed/dGeaY-VIu6Q" title="Arduino Development -- Install Motor Driver Module" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </p>
 
-### 5.1.3 Raspberry Pi 4B Installation demo video
+### 4.1.3 Raspberry Pi 4B Installation demo video
 
 <p>
 <iframe width="100%" height="713" src="https://www.youtube.com/embed/_NL75kF9H-4" title="Ackermann Chassis--Raspberry Pi 4B Installation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </p>
 
-### 5.1.4 Wiring between Raspberry Pi and Motor Driver demo video
+### 4.1.4 Wiring between Raspberry Pi and Motor Driver demo video
 
 <p>
 <iframe width="100%" height="713" src="https://www.youtube.com/embed/5caj24CB4sY" title="Ackermann Chassis--Wiring between Raspberry Pi and Motor Driver" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </p>
 
-### 5.1.5 Battery Installation & Wiring demo video
+### 4.1.5 Battery Installation & Wiring demo video
 
 <p>
 <iframe width="100%" height="713" src="https://www.youtube.com/embed/Ptez7YLmiLw" title="Ackermann Chassis--Battery Installation &amp; Wiring" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </p>
 
-## 5.2 Program Overview
+## 4.2 Program Overview
 
-### 5.2.1 Program Actions
+### 4.2.1 Program Actions
 
 (1) Forward motion for 4 seconds.
 
@@ -50,9 +50,9 @@
 
 There is a 1-second interval between each action.
 
-## 5.3 Hardware Introduction
+## 4.3 Hardware Introduction
 
-### 5.3.1 Raspberry Pi 4B Controller
+### 4.3.1 Raspberry Pi 4B Controller
 
 The Raspberry Pi 4B is a compact embedded computer featuring a built-in GPU with a frequency of 500MHz, equipped with 1/2/4GB LPDDR4 memory, a Gigabit network card, Bluetooth 5.0, USB 3.0 interface, and microHDMI interface. With the mentioned configuration, the Raspberry Pi provides a favorable hardware environment for programming and development.
 
@@ -60,7 +60,7 @@ The diagram below illustrates the pin port distribution of the Raspberry Pi 4B, 
 
 <img src="../_static/media/chapter_5/section_2/01/media/image2.png" class="common_img" />
 
-### 5.3.2 4-Channel Encoder Motor Driver
+### 4.3.2 4-Channel Encoder Motor Driver
 
 This is a motor drive module designed to work with a microcontroller for driving TT motors or magnetic encoder motors. Each channel is equipped with a YX-4055AM motor drive chip, and its voltage range is DC 3V-12V. The specific voltage depends on the voltage requirements of the connected motor. The interface distribution is illustrated in the figure below:
 
@@ -152,7 +152,7 @@ The introduction to the interface on the driver is as below:
 </tbody>
 </table>
 
-### 5.3.3 Steering Servo
+### 4.3.3 Steering Servo
 
 <img src="../_static/media/chapter_5/section_2/01/media/image4.png" class="common_img" />
 
@@ -168,13 +168,13 @@ The `LD-1501MG` operates on a PWM servo mechanism. To control it, a PWM signal w
 | Red | Positive power electrode |
 | Black | Ground wire |
 
-### 5.3.4 Encoder Geared Motor
+### 4.3.4 Encoder Geared Motor
 
 The motor model employed in this chassis is `JGB37-520R30-12`. Here's the breakdown: "`J`" signifies a DC motor, "`GB`" denotes an eccentric output shaft, "`37`" indicates the diameter of the reduction box, "`520`" represents the motor model, "`R30`" stands for the reduction ratio of 1:30, and "`12`" signifies the rated voltage of 12V. Please refer to the interface description illustrated in the figure below:
 
 <img src="../_static/media/chapter_5/section_2/01/media/image6.png" class="common_img" />
 
-## 5.4 Wiring
+## 4.4 Wiring
 
 The example in this section utilizes a Raspberry Pi mainboard, a Raspberry Pi expansion board, and a 4-channel encoded motor driver, powered by an 11.1V 6000mAh lithium battery. The general wiring diagram controlled by the Raspberry Pi is depicted below. In the diagram, the left motor responsible for forward motion of the car is labeled as `M1`, while the right motor is labeled as `M3`. It's important to note that the wiring illustration provided is a representation, and the terminal pins correspond to their real counterparts. This depiction does not affect the actual application outcome, and all connections should adhere to the specifications of the real product.
 
@@ -182,13 +182,13 @@ The example in this section utilizes a Raspberry Pi mainboard, a Raspberry Pi ex
 
 <img src="../_static/media/chapter_5/section_2/01/media/image8.png" class="common_img" />
 
-## 5.5 Environment Configuration and Program Running
+## 4.5 Environment Configuration and Program Running
 
-### 5.5.1 Environment Configuration
+### 4.5.1 Environment Configuration
 
 Prior to downloading, ensure that the **"Arduino IDE"** is installed on your computer. You can find the software package in the **[2. Software Tools->03 Remote Desktop Connection Tool (Raspberry Pi)](Appendix.md)**.
 
-### 5.5.2 Program Running
+### 4.5.2 Program Running
 
 First, you must establish a remote connection to the robot, and subsequently, transfer the program files to the designated directory within the system.
 
@@ -196,13 +196,13 @@ First, you must establish a remote connection to the robot, and subsequently, tr
 
 <img src="../_static/media/chapter_5/section_2/01/media/image9.png" class="common_img" />
 
-* **Drag the demo file under the **"3 Program"** folder to the system image desktop, as shown in the figure below.**
+* **Drag the demo file under the** **"3 Program"**  **folder to the system image desktop, as shown in the figure below.**
 
 <img src="../_static/media/chapter_5/section_2/01/media/image10.png" class="common_img" />
 
 <img src="../_static/media/chapter_5/section_2/01/media/image11.png" class="common_img" />
 
-* **To access the terminal interface using `NoMachine`, follow these steps: Right-click on the desktop, and choose ** **"Open Terminal Here"**
+* **To access the terminal interface using `NoMachine`, follow these steps: Right-click on the desktop, and choose "Open Terminal Here"**
 
 <img src="../_static/media/chapter_5/section_2/01/media/image12.png" class="common_img" />
 
@@ -224,7 +224,7 @@ python3 acker_controller_dark_demo.py
 
 * **To exit the program, simply press **  **'Ctrl+C' in the terminal to close it.**
 
-### 5.4.3 Program Outcome
+### 4.4.3 Program Outcome
 
 After the program is downloaded, the car chassis performs the following actions in the specified order:
 
@@ -242,11 +242,11 @@ After the program is downloaded, the car chassis performs the following actions 
 
 There is a 1-second interval between each action.
 
-## 5.5 Case Analysis
+## 4.5 Case Analysis
 
 [Source Code](../_static/source_code/Programs.zip)
 
-### 5.5.1 Import Required Module
+### 4.5.1 Import Required Module
 
 Import the necessary configuration libraries, with key ones including:
 
@@ -270,7 +270,7 @@ import RPi.GPIO as GPIO
 
 `smbus2` for handling `I2C` communication to control the rotation of the car motor.
 
-### 5.5.2 Car Related Initialization Parameter Settings
+### 4.5.2 Car Related Initialization Parameter Settings
 
 {lineno-start=36}
 ```python
@@ -283,7 +283,7 @@ car_turn_mode = ['go','back','turn_left','left_back','turn_right','right_back']
 
 The parameters mentioned above are explained within the program. Among them, `car_turn_mode` signifies the current movement state of the car, including `go`, `back`, `turn_left`, `left_back`, `turn_right`, and `right_back`. These states will be referenced in the subsequent sections of the program.
 
-### 5.5.3 Initialization Parameter Settings Related to Servos
+### 4.5.3 Initialization Parameter Settings Related to Servos
 
 {lineno-start=42}
 ```python
@@ -294,7 +294,7 @@ steering_serv_turn_time = 100  # The time of the target Angle
 
 You can consult the comments provided. `steering_servor_angle_pulse` utilizes pulse width to control the orientation of the `PWM` servo. An angle of 0° corresponds to a pulse width of 500, while an angle of 180° corresponds to a pulse width of 2500. When the pulse width is set to 1500, the servo is in a neutral state, meaning the front wheels of the car are straight. We have the flexibility to define the initial width as needed.
 
-### 5.5.4 Define GPIO Port Pin 12 to Control the PWM Servo
+### 4.5.4 Define GPIO Port Pin 12 to Control the PWM Servo
 
 Define `GPIO` port `pin 12` to control the `PWM` servo, specify the output range and frequency, and initialize the servo control position to 1500.
 
@@ -309,7 +309,7 @@ pi.set_PWM_frequency(pin, 50) #Set the frequency of the PWM. 5 is the IO port to
 pi.set_PWM_dutycycle(pin, 1500)
 ```
 
-### 5.5.5 Angle Control Function (`servo_angle`)
+### 4.5.5 Angle Control Function (`servo_angle`)
 
 This function takes pulse width as input, with `dc` representing the pulse width passed into the function.
 
@@ -320,7 +320,7 @@ def servo_angle(dc):
     time.sleep(0.5)
 ```
 
-### 5.5.6 Node Initialization
+### 4.5.6 Node Initialization
 
 Node initialization: This initializes the node, enabling the `ROS` master node to locate the current program's node location. Subsequently, it publishes messages through `ROS` to control motor rotation.
 
@@ -331,7 +331,7 @@ rospy.init_node('car_forward_demo', log_level=rospy.DEBUG)
 rospy.on_shutdown(stop)
 ```
 
-### 5.5.7 Chassis Control Section
+### 4.5.7 Chassis Control Section
 
 {lineno-start=72}
 ```python
@@ -347,7 +347,7 @@ servo_angle(steering_servor_angle_pulse)
 
 `set_velocity`: Publishes the car's speed topic to the main node, enabling control over the current car speed. Before the program initiates loop execution, the car's speed defaults to 0.
 
-### 5.5.8 Loop Execution Control
+### 4.5.8 Loop Execution Control
 
 In the program fragment below, the car executes actions via a `while` loop. Different motion modes are determined by the variable `i`, where `mode` denotes the current motion state. Six motion states are defined. `car_speed` indicates the speed of movement, while `steering_servor_angle_pulse` specifies the servo position adjustment.
 
@@ -404,9 +404,9 @@ If `mode == 'turn_left'`:
 `car_speed` = `car_speed_move`
 `steering_servor_angle_pulse` = 1000
 
-## 5.6 Development Notices
+## 4.6 Development Notices
 
-### 5.6.1 Power Supply Considerations
+### 4.6.1 Power Supply Considerations
 
 Considering the rated operating voltage of the Raspberry Pi 4B motherboard is 5V, it's essential to note that the four-channel encoded `IIC` interface (`5V`, `GND`, `SCL`, `SDA`) solution from the motor drive module cannot be directly used for power supply. This is because the `5V` of this interface only supports voltage input and cannot be used for output. However, using other interfaces of the motor driver module to power the Raspberry Pi `GPIO` is not recommended. It is advised to adopt a dual power supply solution, providing a separate external power supply to the motor drive module. For instance, using an 11.1V lithium battery (fully charged at 12V) to power the motor drive module, and supplying Raspberry Pi 4B with an additional 5V3A power supply for independent power.
 
@@ -420,7 +420,7 @@ Here, we clarify that powering the Raspberry Pi through the `GPIO` port is not r
 
 Using a separate power supply for the Raspberry Pi not only ensures its normal operation but also preserves the `5V` and `GND` pins of the Raspberry Pi, facilitating future expansions of the Raspberry Pi.
 
-### 5.6.2 Coding Pin Wiring Diagram of Raspberry Pi
+### 4.6.2 Coding Pin Wiring Diagram of Raspberry Pi
 
 The diagram below illustrates the physical pin layout of the Raspberry Pi, featuring two encoding methods: `BCM` encoding and `wiringPi` encoding. It is evident from the picture that when writing code, you have the flexibility to set different encoding methods within the program for effective programming.
 

@@ -13,14 +13,11 @@
 <p>
 <iframe width="100%" height="713" src="https://www.youtube.com/embed/c_n_P0V7X1Y" title="Ackermann Chassis--Battery Installation &amp; Wiring" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </p>
-
-## 2.2 Tutorial
-
-### 2.2.1 Development Tutorial (STM32 Version)
+## 2.2 Development Tutorial (STM32 Version)
 
 Once the program is downloaded, the car chassis executes a sequence of actions in the following order:
 
-* **Execution Sequence**
+### 2.2.1 Execution Sequence
 
 (1) Move forward for 4 seconds
 
@@ -36,7 +33,7 @@ Once the program is downloaded, the car chassis executes a sequence of actions i
 
 (7) A 1-second interval separates each action.
 
-* **Hardware Introduction**
+### 2.2.2 Hardware Introduction
 
 (1) STM32 Main Control Module Introduction
 
@@ -120,7 +117,7 @@ The motor model employed by the suspension Ackermann chassis is `JGB37-520R30-12
 
 The Hall encoder disk is aligned with the motor along the same shaft. As the motor rotates, the Hall device detects the motion and generates a series of pulse signals. To ascertain the steering direction, it typically produces two sets of square wave signals with a specific phase difference.
 
-* **Wiring**
+### 2.2.3 Wiring 
 
 The Ackerman car's wiring setup is as follows: Connect the front steering servo to the J1 interface of the STM32 main control board using the specified wiring interface. Additionally, link the left motor to the M1 interface and the right motor to the M2 interface on the STM32 main control board. The detailed wiring method is illustrated below.
 
@@ -128,7 +125,7 @@ The Ackerman car's wiring setup is as follows: Connect the front steering servo 
 
 <img src="../_static/media/chapter_2/section_2/media/image7.png" class="common_img" />
 
-* **Program Download**
+### 2.2.4 Program Download 
 
 [Source Code](https://drive.google.com/drive/folders/1yav6eu1obCyiQb6E08EEPfVkPyGk9PeC?usp=sharing)
 
@@ -186,7 +183,7 @@ In addition to use USB method for program download, you can also use either st-l
 To avoid the presence of any exception during the burning process, please strictly follow the above operation steps to operate!
 :::
 
-* **Outcome**
+### 2.2.5 Outcome 
 
 Following the program download, the car chassis executes a sequence of actions in the specified order:
 
@@ -204,7 +201,7 @@ Following the program download, the car chassis executes a sequence of actions i
 
 (7) Each action is separated by a 1-second interval.
 
-* **Source Code Analysis**
+### 2.2.6 Source Code Analysis 
 
 [Source Code](https://drive.google.com/drive/folders/1yav6eu1obCyiQb6E08EEPfVkPyGk9PeC?usp=sharing)
 
