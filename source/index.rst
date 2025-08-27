@@ -13,8 +13,7 @@ Ackerman Chassis
 
    docs/1_Introduction_Installation_checked.md
    docs/2_STM32_Version_checked.md
-   docs/3_4-CH_Motor_Driver_Version_formatted.md
-   docs/4_UNO_Expansion_Version_formatted.md
-   docs/5_Raspberry_Pi_Version_formatted.md
+   docs/3_Arduino_Version_formatted.md
+   docs/4_Raspberry_Pi_Version_formatted.md
    docs/Appendix.md
    Download <https://drive.google.com/drive/folders/1Jcs9PcTw3cJdfZzUECddxVQQZ6stYKqJ?usp=sharing>
