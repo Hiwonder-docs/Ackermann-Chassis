@@ -144,7 +144,6 @@ The introduction to the interface on the driver is as below:
 </tbody>
 </table>
 
-
 ### 3.2.3 Steering Servo
 
 <img src="../_static/media/chapter_4/section_1/02/media/image4.png" class="common_img" />
@@ -415,10 +414,9 @@ Connect the Bluetooth module to the Bluetooth port of the expansion board as bel
 [Source Code](../_static/source_code/Akerman_app.zip)
 
 ::: {Note}
-
 *   Please remove the Bluetooth module before downloading the program. Otherwise, a serial port conflict may occur, resulting in a failed download.
 *   When connecting the Type-B download cable, make sure the battery box switch is set to the **"OFF"** position. This helps prevent accidental contact between the cable and the power pins on the expansion board, which could cause a short circuit.
-    :::
+:::
 
 (1) Locate and open the program file **"3.2.3 Programs\Akerman_app\Akerman_app.ino"** in the same directory as this section.
 
